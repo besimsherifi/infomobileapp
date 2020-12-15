@@ -1,0 +1,26 @@
+const express = require('express');
+const app = express();
+const cors = require('cors');
+// middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(cors());
+// Importing routes
+const testRoutes= require("./Routes/testRoute");
+// Routes
+app.use('/api/test', testRoutes);
+// throw error when page is not found
+app.use((req, res, next) => {
+    const error = new Error('Not found');
+    error.status = 404;
+    next(error);
+});
+app.use((error, req, res, next) => {
+    res.status(error.status || 500);
+    res.json({
+        error: {
+            message: error.message
+        }
+    });
+});
+module.exports = app;
