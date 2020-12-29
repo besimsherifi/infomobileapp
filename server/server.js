@@ -1,6 +1,6 @@
 const http = require('http');
 const app = require('./app');
-
-const port = process.env.PORT || 3000;
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+const port = process.env.PORT || 8000;
 const server = http.createServer(app);
 server.listen(port);
