@@ -6,9 +6,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 // Importing routes
-const testRoutes= require("./Routes/testRoute");
+const crmRoutes= require("./Routes/crmRoute");
+const userRoutes= require("./Routes/userRoute");
 // Routes
-app.use('/api/test', testRoutes);
+app.use('/api/crm', crmRoutes);
+app.use('/api/user', userRoutes);
 // throw error when page is not found
 app.use((req, res, next) => {
     const error = new Error('Not found');
