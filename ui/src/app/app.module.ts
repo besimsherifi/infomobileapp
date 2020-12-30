@@ -1,18 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserlocationComponent } from './userlocation/userlocation.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserlocationComponent } from './components/userlocation/userlocation.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserlocationComponent
+    UserlocationComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
