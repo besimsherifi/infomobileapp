@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import * as jwt_decode from 'jwt-decode';
 
 const BACKEND_URL = 'http://localhost:3000/company/postCompany';
 
