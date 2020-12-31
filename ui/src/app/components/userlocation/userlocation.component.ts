@@ -12,11 +12,11 @@ export class UserlocationComponent implements OnInit {
   constructor(private locService: LocationService) {}
 
 
-  products: any = [0];
 
   ngOnInit() {
     // this.getdashProduct();
     this.getLoc();
+    this.findMe();
   }
 
   getLoc(){
@@ -25,6 +25,30 @@ export class UserlocationComponent implements OnInit {
       console.log(resp.lat);
     });
   }
+
+    findMe()
+    {
+     let decodedData;
+
+     if (navigator.geolocation) {
+       navigator.geolocation.getCurrentPosition((position) => {
+         const data = {
+           latitude: position.coords.latitude,
+           longitude: position.coords.longitude
+         };
+         this.locService.decodeAdress(data)
+         .toPromise().then((decoded) => {
+           console.log(decoded, 'DECODED');
+           decodedData = decoded[0];
+
+       })
+     });
+   }
+     else {
+
+     }
+   }
+
 
 
 

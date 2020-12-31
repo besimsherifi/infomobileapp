@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
-const BACKEND_URL = 'http://localhost:3000/company/postCompany';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +18,10 @@ export class LocationService {
         reject('Error');
       });
     });
+  }
+
+  decodeAdress(data){
+    return this.http.post('http://localhost:8000/api/user/reverse', data);
   }
 
 }
