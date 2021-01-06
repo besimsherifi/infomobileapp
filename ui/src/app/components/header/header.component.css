@@ -1,0 +1,17 @@
+.logoName {
+  margin-top: 13px;
+  margin-left: 20px;
+  text-align: left;
+  color: #553E00;
+}
+.material-icons-outlined {
+  margin-right: 15px;
+  margin-top: 10px;
+  font-size: 33px;
+  color: #E58D00
+}
+.header {
+  justify-content: space-between
+}
+
+

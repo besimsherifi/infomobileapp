@@ -47,7 +47,7 @@ export class ProductsComponent implements OnInit {  router: any;
          .subscribe((formated) =>{
            this.produkti = formated.map((c)=>{
 
-             return { nameprod: c.products[0].nameSQ,price: c.products[0].sellingPriceWithVat,adresa: c.addresses[0].location }
+             return { nameprod: c.products[0].nameSQ,price: c.products[0].sellingPriceWithVat,adresa: c.addresses[0].location,image:c.products[0].image }
 
            });
            console.log(this.produkti,"Produktet")
@@ -61,3 +61,5 @@ export class ProductsComponent implements OnInit {  router: any;
      }
    }
 }
+
+
