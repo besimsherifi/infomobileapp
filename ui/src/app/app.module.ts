@@ -5,24 +5,31 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './utils/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserlocationComponent } from './components/userlocation/userlocation.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BodyComponent } from './components/body/body.component';
 import { ProductsComponent } from './components/products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './components/header/header.component';
+import { SearchComponent } from './components/search/search.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserlocationComponent,
     BodyComponent,
     ProductsComponent,
+    HeaderComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    FlexLayoutModule,
     MaterialModule,
     BrowserAnimationsModule,
 
@@ -31,3 +38,4 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
