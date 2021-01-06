@@ -1,3 +1,5 @@
+const crmController = require('./crmController');
+
 exports.decodeAdress = (req, res) => {
     var NodeGeocoder = require('node-geocoder');
    
@@ -13,12 +15,8 @@ exports.decodeAdress = (req, res) => {
     };
     
     var geocoder = NodeGeocoder(options);
-    
     geocoder.reverse({lat:latitude, lon:longitude})
     .then(function(adress) {
-  
-     
-       console.log(adress);
       res.status(200).json(adress)
     })
     .catch(function(err) {

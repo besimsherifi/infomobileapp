@@ -24,4 +24,6 @@ export class LocationService {
     return this.http.post('http://localhost:8000/api/user/reverse', data);
   }
 
+
+
 }
