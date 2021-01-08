@@ -16,7 +16,7 @@ exports.crmdata = (req,res,next) => {
             var geolibi = geolib.isPointWithinRadius(
               { latitude: latitude, longitude: longitude },
               { latitude: latitudee, longitude: longitudee },
-              5000 //meters 
+              50000 //meters 
               
             );
               if(geolibi){

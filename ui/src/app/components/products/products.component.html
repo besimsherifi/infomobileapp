@@ -1,16 +1,18 @@
-<div fxLayout="row" fxLayoutWrap fxLayoutGap="1%" class="card-div" style="margin-left: 0px;">
+<div fxLayout="column" fxLayoutWrap fxLayoutGap="1%" class="card-div" style="margin-left: 0px;"  *ngFor="let c of companies">
   <mat-card class="product-card" fxLayoutWrap
-   *ngFor="let product of produkti "
-  >
+  *ngFor="let product of c.products" >
 
-<mat-card-title>Name:{{ product.name }}</mat-card-title>
+<mat-card-title >Name:{{ product.nameSQ}}</mat-card-title>
+
+
 <mat-card-content>
-  <p>Description:{{ product.adresa }}</p>
+  <p>Description:{{ c.address.location }}</p>
+  <p>Description:{{ c.products.nameSQ }}</p>
 
 </mat-card-content>
-<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10%">
+<!-- <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10%">
   <p class="from-btn">Price: {{ product.price }}</p>
-</div>
+</div> -->
 
 </mat-card>
 
