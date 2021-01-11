@@ -14,6 +14,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
+import { SetingsComponent } from './components/setings/setings.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { SearchComponent } from './components/search/search.component';
     ProductsComponent,
     HeaderComponent,
     SearchComponent,
+    SetingsComponent,
   ],
   imports: [
     BrowserModule,

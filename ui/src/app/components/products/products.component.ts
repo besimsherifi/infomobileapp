@@ -10,18 +10,20 @@ import { LocationService } from '../../services/location.service';
 })
 
 export class ProductsComponent implements OnInit {  router: any;
-  constructor(private locService: LocationService,private dataService: DataService ) {}
+  constructor(private locService: LocationService, private dataService: DataService ) {}
 
 
-  produkti: any = [];
+  companies: any = [];
 
 
+  // tslint:disable-next-line:typedef
   ngOnInit() {
     this.getLoc();
     this.findMe();
   }
 
 
+  // tslint:disable-next-line:typedef
   getLoc(){
     this.locService.getLocation().then(resp => {
       console.log(resp.lng);
@@ -29,6 +31,7 @@ export class ProductsComponent implements OnInit {  router: any;
     });
   }
 
+    // tslint:disable-next-line:typedef
     findMe()
     {
      let decodedData;
@@ -44,14 +47,22 @@ export class ProductsComponent implements OnInit {  router: any;
            decodedData = decoded[0];
        }).then(() => {
          this.dataService.getCrmCompaniesByUserAddress(data)
-         .subscribe((formated) =>{
-           this.produkti = formated.map((c)=>{
-
-             return { nameprod: c.products[0].nameSQ,price: c.products[0].sellingPriceWithVat,adresa: c.addresses[0].location,image:c.products[0].image }
-
-           });
-           console.log(this.produkti,"Produktet")
-          ;
+         .subscribe((formated) => {
+          this.companies = formated.map((c) => {
+            return {
+              company: {
+                name: c.nameSQ,
+                id: c.id
+              },
+              address: c.addresses.map((a) => {
+                  return {
+                    location: a.location
+                  };
+                })[0],
+              products: c.products
+            };
+            });
+          console.log(this.companies, 'Produktet');
          }, (error) => {
         });
       });
