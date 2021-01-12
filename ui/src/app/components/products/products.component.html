@@ -1,21 +1,22 @@
+<!--slider km-->
+<div class="slider">
+  <ngx-slider [(value)]="value" [options]="options" (userChange)="detectchange(value)" ></ngx-slider>
+</div>
+
+<!--search-->
+<div class="ifilter">
+  <mat-icon style="font-size: xx-large;">filter_list</mat-icon>
+</div>
+<!--Produktet-->
 <div fxLayout="column" fxLayoutWrap fxLayoutGap="1%" class="card-div" style="margin-left: 0px;"  *ngFor="let c of companies">
   <mat-card class="product-card" fxLayoutWrap
   *ngFor="let product of c.products" >
-
-<mat-card-title >Name:{{ product.nameSQ}}</mat-card-title>
-
-
-<mat-card-content>
-  <p>Description:{{ c.address.location }}</p>
-  <p>Description:{{ c.products.nameSQ }}</p>
-
-</mat-card-content>
-<!-- <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10%">
-  <p class="from-btn">Price: {{ product.price }}</p>
-</div> -->
-
-</mat-card>
-
+    <mat-card-title >Name:{{ product.nameSQ}}</mat-card-title>
+      <mat-card-content>
+        <p>Address:{{ c.address.location }}</p>
+        <p>Description:{{ c.products.nameSQ }}</p>
+      </mat-card-content>
+  </mat-card>
 </div>
 
 

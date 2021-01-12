@@ -6,6 +6,7 @@ import { MaterialModule } from './utils/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -34,6 +35,7 @@ import { MenuComponent } from './components/menu/menu.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    NgxSliderModule,
     HttpClientModule,
     FlexLayoutModule,
     MaterialModule,

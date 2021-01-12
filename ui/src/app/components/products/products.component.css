@@ -1,0 +1,15 @@
+.slider{
+  margin-top: 15px;
+  margin-left:30px;
+  margin-right: 30px;
+
+}
+
+.slider:focus {
+  outline: none;
+}
+
+.ifilter{
+  margin-left: 20px;
+  color: #E58D00;
+}
