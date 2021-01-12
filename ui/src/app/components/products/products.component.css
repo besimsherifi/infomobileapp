@@ -1,3 +1,5 @@
+
+
 .slider{
   margin-top: 15px;
   margin-left:30px;
@@ -5,9 +7,7 @@
 
 }
 
-.slider:focus {
-  outline: none;
-}
+
 
 .ifilter{
   margin-left: 20px;
@@ -34,3 +34,16 @@ button:focus {
   background: #E58D00;
   color: white;
 }
+
+.slider ::ng-deep .ngx-slider .ngx-slider-pointer {
+background-color: #E58D00;
+
+}
+
+.slider ::ng-deep .ngx-slider .ngx-slider-pointer:focus {
+
+  outline: none;
+  }
+  .slider ::ng-deep .ngx-slider .ngx-slider-pointer.ngx-slider-active:after{
+   background-color: white;
+  }

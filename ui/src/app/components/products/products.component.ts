@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 import { LocationService } from '../../services/location.service';
-import { Options } from "@angular-slider/ngx-slider"
+import { Options } from '@angular-slider/ngx-slider';
 
 
 @Component({
@@ -16,18 +16,20 @@ export class ProductsComponent implements OnInit {  router: any;
 
   companies: any = [];
 
-//slider rangekm
+// slider rangekm
+  // tslint:disable-next-line:no-inferrable-types
   value: number = 25;
   options: Options = {
     showTicksValues: true,
     stepsArray: [
-      { value: 25, legend: "km" },
-      { value: 50, legend: "km" },
-      { value: 75, legend: "km" },
-      { value: 100, legend: "km" }
+      { value: 25, legend: 'km' },
+      { value: 50, legend: 'km' },
+      { value: 75, legend: 'km' },
+      { value: 100, legend: 'km' }
     ]
   };
 
+  // tslint:disable-next-line:typedef
   detectchange(value){
     this.findMe();
   }
@@ -57,7 +59,7 @@ export class ProductsComponent implements OnInit {  router: any;
          const data = {
            latitude: position.coords.latitude,
            longitude: position.coords.longitude,
-           radius: this.value*1000
+           radius: this.value * 1000
          };
          this.locService.decodeAdress(data)
          .toPromise().then((decoded) => {
