@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-setings',
-  templateUrl: './setings.component.html',
-  styleUrls: ['./setings.component.css']
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
-export class SetingsComponent implements OnInit {
+export class MenuComponent implements OnInit {
 
   constructor(private lokacioni: Location) { }
 
@@ -17,4 +17,5 @@ export class SetingsComponent implements OnInit {
   backClicked() {
     this.lokacioni.back();
   }
+
 }
