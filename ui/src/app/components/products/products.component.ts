@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 import { LocationService } from '../../services/location.service';
+import { Options } from "@angular-slider/ngx-slider"
 
 
 @Component({
@@ -15,6 +16,21 @@ export class ProductsComponent implements OnInit {  router: any;
 
   companies: any = [];
 
+//slider rangekm
+  value: number = 25;
+  options: Options = {
+    showTicksValues: true,
+    stepsArray: [
+      { value: 25, legend: "km" },
+      { value: 50, legend: "km" },
+      { value: 75, legend: "km" },
+      { value: 100, legend: "km" }
+    ]
+  };
+
+  detectchange(value){
+    this.findMe();
+  }
 
   // tslint:disable-next-line:typedef
   ngOnInit() {
@@ -40,13 +56,15 @@ export class ProductsComponent implements OnInit {  router: any;
        navigator.geolocation.getCurrentPosition((position) => {
          const data = {
            latitude: position.coords.latitude,
-           longitude: position.coords.longitude
+           longitude: position.coords.longitude,
+           radius: this.value*1000
          };
          this.locService.decodeAdress(data)
          .toPromise().then((decoded) => {
            decodedData = decoded[0];
        }).then(() => {
-         this.dataService.getCrmCompaniesByUserAddress(data)
+
+        this.dataService.getCrmCompaniesByUserAddress(data)
          .subscribe((formated) => {
           this.companies = formated.map((c) => {
             return {
@@ -63,7 +81,7 @@ export class ProductsComponent implements OnInit {  router: any;
             };
             });
           console.log(this.companies, 'Produktet');
-         }, (error) => {
+      }, (error) => {
         });
       });
      });
@@ -71,6 +89,7 @@ export class ProductsComponent implements OnInit {  router: any;
      else {
      }
    }
+
 }
 
 

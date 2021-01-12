@@ -14,11 +14,10 @@ const routes: Routes = [
   { path: '', component: BodyComponent },
   { path: 'settings', component: SetingsComponent},
   { path: 'menu', component: MenuComponent},
-
-                       ];
+                    ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'disabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
