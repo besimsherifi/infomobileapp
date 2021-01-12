@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { SetingsComponent } from './components/setings/setings.component';
+import { MenuComponent } from './components/menu/menu.component';
+
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { SetingsComponent } from './components/setings/setings.component';
     HeaderComponent,
     SearchComponent,
     SetingsComponent,
+    MenuComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,12 @@
   font-size: 33px;
   color: #E58D00
 }
+.material-icons {
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 33px;
+  color: #E58D00
+}
 .header {
   justify-content: space-between
 }
