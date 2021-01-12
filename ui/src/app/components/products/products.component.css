@@ -12,4 +12,25 @@
 .ifilter{
   margin-left: 20px;
   color: #E58D00;
+
+}
+
+drag-scroll {
+  height: 50px;
+}
+button {
+  height: 33px;
+  width: 138px;
+  margin-left:5px;
+  border-radius: 50px;
+  text-align: center;
+  color: #E58D00;
+
+}
+button:focus {
+  outline: none;
+}
+.active{
+  background: #E58D00;
+  color: white;
 }

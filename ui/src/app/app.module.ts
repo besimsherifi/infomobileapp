@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -35,6 +36,7 @@ import { MenuComponent } from './components/menu/menu.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    DragScrollModule,
     NgxSliderModule,
     HttpClientModule,
     FlexLayoutModule,

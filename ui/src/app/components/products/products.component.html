@@ -4,9 +4,22 @@
 </div>
 
 <!--search-->
-<div class="ifilter">
-  <mat-icon style="font-size: xx-large;">filter_list</mat-icon>
+<div class="ifilter" fxLayout="row" fxLayoutWrap>
+  <mat-icon style="font-size: xx-large;margin-right:10px;margin-top: 3px;">filter_list</mat-icon>
+  <!--buttonscroll-->
+  <drag-scroll style="width:100%">
+    <button mat-raised-button [routerLink]="['/']" routerLinkActive="active">Active Category</button>
+    <button mat-raised-button routerLinkActive="active">Inactive Category</button>
+    <button mat-raised-button routerLinkActive="active">Inactive Category</button>
+    <button mat-raised-button routerLinkActive="active">Inactive Category</button>
+    <button mat-raised-button routerLinkActive="active">Inactive Category</button>
+
+
+
+    </drag-scroll>
 </div>
+
+
 <!--Produktet-->
 <div fxLayout="column" fxLayoutWrap fxLayoutGap="1%" class="card-div" style="margin-left: 0px;"  *ngFor="let c of companies">
   <mat-card class="product-card" fxLayoutWrap
