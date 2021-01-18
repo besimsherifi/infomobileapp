@@ -2,7 +2,6 @@
 <div class="slider">
   <ngx-slider [(value)]="value" [options]="options" (userChange)="detectchange(value)" ></ngx-slider>
 </div>
-
 <!--search-->
 <div class="ifilter" fxLayout="row" fxLayoutWrap>
   <mat-icon style="font-size: xx-large;margin-right:10px;margin-top: 3px;">filter_list</mat-icon>
@@ -13,23 +12,27 @@
     <button mat-raised-button routerLinkActive="active">Inactive Category</button>
     <button mat-raised-button routerLinkActive="active">Inactive Category</button>
     <button mat-raised-button routerLinkActive="active">Inactive Category</button>
-
-
-
     </drag-scroll>
 </div>
-
-
 <!--Produktet-->
-<div fxLayout="column" fxLayoutWrap fxLayoutGap="1%" class="card-div" style="margin-left: 0px;"  *ngFor="let c of companies">
-  <mat-card class="product-card" fxLayoutWrap
-  *ngFor="let product of c.products" >
-    <mat-card-title >Name:{{ product.nameSQ}}</mat-card-title>
-      <mat-card-content>
-        <p>Address:{{ c.address.location }}</p>
-        <p>Description:{{ c.products.nameSQ }}</p>
-      </mat-card-content>
-  </mat-card>
+<div class="row">
+  <div  *ngFor="let c of allproducts"  class="col-6" >
+
+    <mat-card>
+      <div fxLayoutAlign="center center" style="margin:3px">
+      <img
+      mat-card-image
+      class="card-image"
+      src="{{imgpath+c.image}}"
+    />
+  </div>
+      <mat-card-title style="font-size: large;color:#e58D00;font-weight:bold;" >{{ c.nameSQ}}</mat-card-title>
+          <mat-card-content>
+
+
+           <span style="display: flex;justify-content: space-between;"><p style="font-size: 12px;">Category</p> <p  style="float: right;font-size: 12;font-weight:bold ;color:#035f11">{{ c.sellingPriceWithVat }}den</p></span>
+
+          </mat-card-content>
+      </mat-card>
 </div>
-
-
+</div>

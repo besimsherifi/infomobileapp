@@ -20,9 +20,7 @@ export class LocationService {
     });
   }
 
-  decodeAdress(data){
-    return this.http.post('http://localhost:8000/api/user/reverse', data);
-  }
+ 
 
 
 

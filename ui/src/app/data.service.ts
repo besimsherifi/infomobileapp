@@ -16,8 +16,5 @@ export class DataService {
     return this.http.post('http://localhost:8000/api/crm/c', data);
     }
 
-    getCrmCompaniesByUserAddress2(data): Observable<any>{
-      // console.log(data, 'data');
-      return this.http.post('http://localhost:8000/api/crm/cc', data);
-      }
+  
 }
