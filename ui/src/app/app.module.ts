@@ -18,6 +18,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { SetingsComponent } from './components/setings/setings.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { CompaniesComponent } from './components/companies/companies.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 
 
@@ -30,6 +32,8 @@ import { MenuComponent } from './components/menu/menu.component';
     SearchComponent,
     SetingsComponent,
     MenuComponent,
+    CompaniesComponent,
+    FilterComponent,
 
   ],
   imports: [

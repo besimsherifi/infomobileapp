@@ -48,16 +48,16 @@ background-color: #E58D00;
    background-color: white;
   }
 
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6 , 0fr);
-
-}
+  }
 
 
-.card-image {
-  width: 142px;
-  height: 96px;
-}
+
+  .card-image {
+    width: 142px;
+    height: 96px;
+  }

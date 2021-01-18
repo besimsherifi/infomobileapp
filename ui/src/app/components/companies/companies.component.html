@@ -1,0 +1,44 @@
+<app-header></app-header>
+<!--slider km-->
+<div class="slider">
+  <ngx-slider [(value)]="value" [options]="options" (userChange)="detectchange(value)" ></ngx-slider>
+</div>
+
+<!--search-->
+<div class="ifilter" fxLayout="row" fxLayoutWrap>
+<a style="color: #E58D00;" [routerLink]="['/filter']">  <mat-icon style="font-size: xx-large;margin-right:10px;margin-top: 3px;">filter_list</mat-icon></a>
+  <!--buttonscroll-->
+  <drag-scroll style="width:100%">
+    <button mat-raised-button [routerLink]="['/']" routerLinkActive="active">All Categories</button>
+    <button mat-raised-button routerLinkActive="active">Construction</button>
+    <button mat-raised-button routerLinkActive="active">Retail</button>
+    <button mat-raised-button routerLinkActive="active">Restaurant</button>
+    <button mat-raised-button routerLinkActive="active">Bakery</button>
+    <button mat-raised-button routerLinkActive="active">Clothing</button>
+
+
+
+    </drag-scroll>
+</div>
+
+<!--Produktet-->
+<div class="row">
+  <div  class="col-6" *ngFor="let c of companies">
+    <mat-card>
+      <div fxLayoutAlign="center center" style="margin:3px">
+      <img
+      mat-card-image
+      class="card-image"
+      src="{{imgpath+c.image}}"
+    />
+    </div>
+      <mat-card-title style="font-size: large;color:#e58D00;font-weight:bold;" >{{ c.company.name}}</mat-card-title>
+          <mat-card-content>
+           <span style="display: flex;justify-content: space-between;"><p style="font-size: 12px;">Category</p> </span>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+
+
+
