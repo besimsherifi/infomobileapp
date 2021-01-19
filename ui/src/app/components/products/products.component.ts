@@ -17,10 +17,10 @@ export class ProductsComponent implements OnInit {  router: any;
   options: Options = {
     showTicksValues: true,
     stepsArray: [
-      { value: 25, legend: 'km' },
-      { value: 50, legend: 'km' },
-      { value: 75, legend: 'km' },
-      { value: 100, legend: 'km' }
+      { value: 40, legend: 'km' },
+      { value: 80, legend: 'km' },
+      { value: 120, legend: 'km' },
+      { value: 200, legend: 'km' }
     ]
   };
   detectchange(value){
@@ -78,3 +78,7 @@ export class ProductsComponent implements OnInit {  router: any;
      }
    }
 }
+
+
+
+

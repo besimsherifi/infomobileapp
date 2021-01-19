@@ -12,7 +12,7 @@ export class CompaniesComponent implements OnInit {router: any;
   constructor(private locService: LocationService, private dataService: DataService ) {}
 
 
-  imgpath = 'https://localhost:44364/ProductsImages/';
+  imgpath = 'https://localhost:44364/';
   companies: any = [];
 
 // slider rangekm
@@ -66,7 +66,8 @@ export class CompaniesComponent implements OnInit {router: any;
             return {
               company: {
                 name: c.nameSQ,
-                id: c.id
+                id: c.id,
+                image: c.image
               },
               address: c.addresses.map((a) => {
                   return {

@@ -20,6 +20,7 @@ import { SetingsComponent } from './components/setings/setings.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { ProductCategoriesListComponent } from './components/product-categories-list/product-categories-list.component';
 
 
 
@@ -34,6 +35,7 @@ import { FilterComponent } from './components/filter/filter.component';
     MenuComponent,
     CompaniesComponent,
     FilterComponent,
+    ProductCategoriesListComponent
 
   ],
   imports: [

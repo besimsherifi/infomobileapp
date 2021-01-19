@@ -7,6 +7,7 @@ import { BodyComponent } from './components/body/body.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { ProductCategoriesListComponent } from './components/product-categories-list/product-categories-list.component';
 import { ProductsComponent } from './components/products/products.component';
 import { SetingsComponent } from './components/setings/setings.component';
 
@@ -14,8 +15,11 @@ import { SetingsComponent } from './components/setings/setings.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: '', component: BodyComponent },
-  { path: '', component: ProductsComponent},
+  { path: '', component: BodyComponent,children: [
+    { path: 'allproducts', component: ProductCategoriesListComponent},
+  ]
+},
+  { path: '', component: ProductsComponent,},
   { path: 'companies', component: CompaniesComponent},
   { path: 'settings', component: SetingsComponent},
   { path: 'menu', component: MenuComponent},
@@ -27,3 +31,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+
