@@ -22,14 +22,14 @@
 </div>
 
 <!--Produktet-->
-<div class="row">
-  <div  class="col-6" *ngFor="let c of companies">
+<div class="row" style="margin: 5px;">
+  <div class="col-6"style="padding: 5px;"  *ngFor="let c of companies">
     <mat-card>
       <div fxLayoutAlign="center center" style="margin:3px">
       <img
       mat-card-image
       class="card-image"
-      src="{{imgpath+c.image}}"
+      src="{{imgpath+c.company.image}}"
     />
     </div>
       <mat-card-title style="font-size: large;color:#e58D00;font-weight:bold;" >{{ c.company.name}}</mat-card-title>
@@ -39,6 +39,5 @@
       </mat-card>
   </div>
 </div>
-
 
 
