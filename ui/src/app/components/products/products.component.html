@@ -18,7 +18,7 @@
 <div class="row" style="margin: 5px; margin-bottom: 10px;"  >
   <div  *ngFor="let c of allproducts"  class="col-6"style="padding: 5px;"  >
 
-    <mat-card>
+    <mat-card  [routerLink]="'../detail/' + c.id">
       <div fxLayoutAlign="center center" style="margin:3px">
       <img
       mat-card-image
@@ -33,6 +33,12 @@
            <span style="display: flex;justify-content: space-between;"><p style="font-size: 12px;">Category</p> <p  style="float: right;font-size: 12;font-weight:bold ;color:#035f11">{{ c.sellingPriceWithVat }}den</p></span>
 
           </mat-card-content>
+          <!-- <button
+          class="btn btn-info"
+          [routerLink]="'../detail/' + c.id"
+        >
+          Explore
+        </button> -->
       </mat-card>
 </div>
 </div>
