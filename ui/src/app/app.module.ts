@@ -21,6 +21,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { ProductCategoriesListComponent } from './components/product-categories-list/product-categories-list.component';
+import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
 
 
 
@@ -35,7 +36,8 @@ import { ProductCategoriesListComponent } from './components/product-categories-
     MenuComponent,
     CompaniesComponent,
     FilterComponent,
-    ProductCategoriesListComponent
+    ProductCategoriesListComponent,
+    ProductdetailsComponent
 
   ],
   imports: [
