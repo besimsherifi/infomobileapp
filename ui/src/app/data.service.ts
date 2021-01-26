@@ -17,8 +17,8 @@ export class DataService {
     return this.http.post('http://localhost:8000/api/crm/c', data);
     }
 
-    getProductsbyID(id): Observable<IProduct>{
-      return this.http.get<IProduct>('https://localhost:44364/api/productsapi/details/', { params: { id} });
+    getProductsbyID(id): Observable<any>{
+      return this.http.get<IProduct>('https://localhost:44364/api/companyapi/details', { params: { id} });
     }
 
 

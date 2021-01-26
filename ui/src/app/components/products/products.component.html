@@ -18,7 +18,7 @@
 <div class="row" style="margin: 5px; margin-bottom: 10px;"  >
   <div  *ngFor="let c of allproducts"  class="col-6"style="padding: 5px;"  >
 
-    <mat-card  [routerLink]="'../detail/' + c.id">
+    <mat-card [routerLink]="['/detail', c.id]">
       <div fxLayoutAlign="center center" style="margin:3px">
       <img
       mat-card-image
