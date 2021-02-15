@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxWebstorageModule} from 'ngx-webstorage';
 
 import { MaterialModule } from './utils/material.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,7 @@ import { CompaniesComponent } from './components/companies/companies.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { ProductCategoriesListComponent } from './components/product-categories-list/product-categories-list.component';
 import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 
 
@@ -37,7 +39,8 @@ import { ProductdetailsComponent } from './components/productdetails/productdeta
     CompaniesComponent,
     FilterComponent,
     ProductCategoriesListComponent,
-    ProductdetailsComponent
+    ProductdetailsComponent,
+    FavoritesComponent
 
   ],
   imports: [
@@ -50,6 +53,7 @@ import { ProductdetailsComponent } from './components/productdetails/productdeta
     FlexLayoutModule,
     MaterialModule,
     BrowserAnimationsModule,
+    NgxWebstorageModule.forRoot(),
 
   ],
   providers: [],
