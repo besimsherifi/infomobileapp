@@ -23,16 +23,16 @@
 
 <!--Produktet-->
 <div class="row" style="margin: 5px;">
-  <div class="col-6"style="padding: 5px;"  *ngFor="let c of companies">
+  <div class="col-6"style="padding: 5px;"  *ngFor="let c of companies | filter: searchTextt ">
     <mat-card>
       <div fxLayoutAlign="center center" style="margin:3px">
       <img
       mat-card-image
       class="card-image"
-      src="{{imgpath+c.company.image}}"
+      src="{{imgpath+c.image}}"
     />
     </div>
-      <mat-card-title style="font-size: large;color:#e58D00;font-weight:bold;" >{{ c.company.name}}</mat-card-title>
+      <mat-card-title style="font-size: large;color:#e58D00;font-weight:bold;" >{{ c.nameSQ}}</mat-card-title>
           <mat-card-content>
            <span style="display: flex;justify-content: space-between;"><p style="font-size: 12px;">Category</p> </span>
           </mat-card-content>
