@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from 'src/app/search.service';
 
 
 
@@ -12,25 +13,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesComponent implements OnInit {
 
+  searchTextt;
   data: any;
+  imgpath = 'https://localhost:44364/ProductsImages/';
   constructor(
+    private searchService: SearchService
 
   ) { }
 
-  // tslint:disable-next-line:typedef
+
   ngOnInit() {
     this.data = JSON.parse(localStorage.getItem('fav'));
-    console.log(this.data);
+    this.searchService.searchTextt.subscribe((val) => {
+      this.searchTextt = val;
+    });
+
 
 }
 
   }
-//   // tslint:disable-next-line:typedef
-//   updateValue() {
-//     this.prod.push('checked');
-//     this.prod = this.prod; // does the trick
-// }
-  // tslint:disable-next-line:typedef
+
 
 
 
