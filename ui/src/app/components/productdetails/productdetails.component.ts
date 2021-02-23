@@ -1,22 +1,24 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, Injectable, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DataService } from '../../data.service';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { Product } from 'src/app/models/product.model';
-import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
-
+import { StorageMap } from '@ngx-pwa/local-storage';
 
 @Component({
   selector: 'app-productdetails',
   templateUrl: './productdetails.component.html',
   styleUrls: ['./productdetails.component.css']
 })
+@Injectable()
 export class ProductdetailsComponent implements OnInit {
   products: any = [];
   imgpath = 'https://localhost:44364/ProductsImages/';
   id;
-  isFavorite: false;
+  isFavorite: boolean = false;
   public data: any;
+
+  allproducts: any = [];
 
 
 
@@ -24,10 +26,10 @@ export class ProductdetailsComponent implements OnInit {
     public dataservice: DataService,
     private route: ActivatedRoute,
     private router: Router,
-    private storage: LocalStorageService
+    private storage: StorageMap
 
   ) {
-
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   // tslint:disable-next-line:typedef
@@ -39,11 +41,9 @@ export class ProductdetailsComponent implements OnInit {
                              return this.getProduct(+params.get('id'));
         }
         ))
-      .subscribe((data) => {this.products = data,
+      .subscribe((data) => {
+        this.products = data,
         console.log(data, 'Produkteteeeeee');
-
-
-        // this.isprodfav();
                             if (this.products.length < 1) {
                               this.id--;
                               if (this.id === 0) {
@@ -52,13 +52,20 @@ export class ProductdetailsComponent implements OnInit {
                               this.router.navigate(['/detail', this.id]);
 
                             }
-
-
+                            this.isprodfav();
       },
     (error) => {
       console.log(error);
+
     });
 
+
+    this.dataservice.getProducts().subscribe((formated) => {
+      this.allproducts = formated
+
+    }
+
+    );
 
   }
 
@@ -67,49 +74,63 @@ export class ProductdetailsComponent implements OnInit {
   return this.dataservice.getProductsbyID(id);
   }
 
-
-
-
-
   goNext(){
     console.log(this.id , 'ProoddddIDD');
+
     this.router.navigate(['/detail', this.id + 1]);
 
+
   }
 
+ goBack() {
+  this.id--;
+  if (this.id === 0) {
+   this.id = 1;
+ }
+  this.router.navigate(['/detail', this.id]);
 
-  goBack() {
-    this.id--;
-    if (this.id === 0) {
-     this.id = 1;
-   }
-
-    this.router.navigate(['/detail', this.id]);
   }
 
-  AddToFav() {
-    if (this.isFavorite) {
-    localStorage.setItem('fav', JSON.stringify(this.products));
-    console.log(this.data);
+async  AddToFav(){
+    let products  = JSON.parse(localStorage.getItem('fav'))
+    if(products != null){
+      let item = products.find(x => x.id === this.products[0].id)
+      if(item != null){
+        if( this.isFavorite = true){
+          this.isFavorite = false
+          const index = products.indexOf(item);
+          products.splice(index, 1)
+          localStorage.setItem('fav', JSON.stringify(products))
+        }else{
+          this.isFavorite = true
+        }
 
+      }else{
+        products.push(this.products[0])
+        this.isFavorite = true
+        localStorage.setItem('fav', JSON.stringify(products))
+      }
+    }else{
+
+      this.isFavorite = true
+      localStorage.setItem('fav', JSON.stringify(this.products))
     }
-    else if (this.isFavorite === false) {
-      localStorage.removeItem('fav');
-    }
-
-
   }
 
-  // tslint:disable-next-line:typedef
-  // isprodfav(){
-  //   const product = JSON.parse(localStorage.getItem('fav'));
-  //   console.log(product, 'STORAGEEE');
-  //   // tslint:disable-next-line:label-position
-  //   if (product !== null){
-  //     if (product[0].id === this.products[0].id){
-  //       this.isFavorite = true;
-  //       }
-  //   }
-  // }
+
+isprodfav(){
+  const products = JSON.parse(localStorage.getItem('fav')).find(x => x.id === this.products[0].id);
+  if (products !== null){
+    if (products.id === this.products[0].id){
+      this.isFavorite = true;
+      }else{
+        this.isFavorite = false
+      }
+    }
 
 }
+
+
+  }
+
+

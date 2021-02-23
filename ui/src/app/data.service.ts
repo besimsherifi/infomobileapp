@@ -21,5 +21,9 @@ export class DataService {
       return this.http.get<IProduct>('https://localhost:44364/api/companyapi/details', { params: { id} });
     }
 
+    getProducts(): Observable<any>{
+      return this.http.get<IProduct>('https://localhost:44364/api/companyapi/product');
+    }
+
 
 }
