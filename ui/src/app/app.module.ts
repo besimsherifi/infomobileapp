@@ -24,6 +24,7 @@ import { FilterComponent } from './components/filter/filter.component';
 import { ProductCategoriesListComponent } from './components/product-categories-list/product-categories-list.component';
 import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { SortPipe } from './components/Pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
     ProductCategoriesListComponent,
     ProductdetailsComponent,
     FavoritesComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,6 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
     NgxWebstorageModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
