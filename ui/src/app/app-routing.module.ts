@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'menu', component: MenuComponent},
   { path: 'filter', component: FilterComponent},
   { path: 'detail/:id', component: ProductdetailsComponent},
-  {path: 'fav', component: FavoritesComponent},
+  {path: 'favorite', component: FavoritesComponent},
                     ];
 
 @NgModule({

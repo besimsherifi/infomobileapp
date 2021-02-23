@@ -28,9 +28,9 @@ export class CompaniesComponent implements OnInit {
   options: Options = {
     showTicksValues: true,
     stepsArray: [
-      { value: 25, legend: 'km' },
-      { value: 50, legend: 'km' },
-      { value: 75, legend: 'km' },
+      { value: 35, legend: 'km' },
+      { value: 80, legend: 'km' },
+      { value: 120, legend: 'km' },
       { value: 200, legend: 'km' },
     ],
   };

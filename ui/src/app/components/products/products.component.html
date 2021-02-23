@@ -8,9 +8,12 @@
 </div>
 <!--search-->
 <div class="ifilter" fxLayout="row" fxLayoutWrap>
-  <mat-icon style="font-size: xx-large; margin-right: 10px; margin-top: 3px"
-    >filter_list</mat-icon
+  <a style="color: #e58d00" [routerLink]="['/filter']">
+    <mat-icon style="font-size: xx-large; margin-right: 10px; margin-top: 3px"
+      >filter_list</mat-icon
+    ></a
   >
+
   <!--buttonscroll-->
   <drag-scroll style="width: 100%">
     <button mat-raised-button [routerLink]="['/']" routerLinkActive="active">
@@ -30,29 +33,65 @@
     </button>
   </drag-scroll>
 </div>
-<!-- <div class="p-1 searchi bg-light rounded rounded-pill shadow-sm mb-4">
-  <div class="input-group">
-    <div class="input-group-prepend"  >
-      <button id="button-addon2" type="submit" class="btn btn-link text-warning"><i class="fa fa-search"></i></button>
-    </div>
-    <input type="text" name="search" [(ngModel)]="searchTextt"   autocomplete="off" placeholder="&#61442; Search here" aria-describedby="button-addon2" class="form-control border-0 bg-light">
-  </div>
-</div> -->
 
 <!--Produktet-->
+<label
+  style="
+    top: 65px;
+    margin-left: 20px;
+    width: 41px;
+    height: 17px;
+    color: var(--unnamed-color-553e00);
+    text-align: left;
+    font: normal normal normal 12px/18px Poppins;
+    letter-spacing: 0px;
+    color: #553e00;
+    opacity: 1;
+  "
+  >Sort by</label
+>
+<div style="width: 100%; display: flex; justify-content: center">
+  <div class="sprod">
+    <select class="sprod" [(ngModel)]="SortbyParam">
+      <option value="nameSQ">ProductName</option>
+      <option value="sellingPriceWithVat">Price</option>
+    </select>
+  </div>
+  <i
+    style="align-self: center"
+    class="material-icons"
+    type="button"
+    (click)="onSortDirection()"
+  >
+    swap_vert
+    <i *ngIf="SortDirection === 'asc'" class="fas fa-sort-alpha-down"></i>
+    <i *ngIf="SortDirection === 'desc'" class="fas fa-sort-alpha-up"></i>
+  </i>
+</div>
+
 <div class="row" style="margin: 5px; margin-bottom: 10px">
   <div
-    *ngFor="let c of allproducts | filter: searchTextt"
+    *ngFor="
+      let c of allproducts
+        | filter: searchTextt
+        | sort: [SortbyParam, SortDirection]
+    "
     class="col-6"
     style="padding: 5px"
   >
     <mat-card [routerLink]="['/detail', c.id]">
       <div fxLayoutAlign="center center" style="margin: 3px">
-        <img mat-card-image class="card-image" src="{{ imgpath + c.image }}" />
+        <img
+          style="margin-top: 1px"
+          mat-card-image
+          class="card-image"
+          src="{{ imgpath + c.image }}"
+        />
       </div>
       <mat-card-title
         style="font-size: large; color: #e58d00; font-weight: bold"
-        >{{ c.nameSQ }}</mat-card-title>
+        >{{ c.nameSQ }}</mat-card-title
+      >
       <mat-card-content>
         <span style="display: flex; justify-content: space-between"
           ><p style="font-size: 12px">Category</p>

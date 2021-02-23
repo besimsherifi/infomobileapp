@@ -17,7 +17,10 @@ export class ProductsComponent implements OnInit {
     private searchService: SearchService
   ) {}
 
-  searchTextt;
+  searchTextt;  
+  SortbyParam = '';
+  SortDirection = 'asc';
+
   allproducts: any = [];
   companies: any = [];
   imgpath = 'https://localhost:44364/ProductsImages/';
@@ -27,7 +30,7 @@ export class ProductsComponent implements OnInit {
   options: Options = {
     showTicksValues: true,
     stepsArray: [
-      { value: 40, legend: 'km' },
+      { value: 35, legend: 'km' },
       { value: 80, legend: 'km' },
       { value: 120, legend: 'km' },
       { value: 200, legend: 'km' },
@@ -80,13 +83,19 @@ export class ProductsComponent implements OnInit {
                 this.allproducts.push(this.companies[i].products[j]);
               }
             }
-            console.log(this.allproducts, 'proooo');
-            console.log(this.companies, 'Produktet');
+            console.log(this.companies, 'Company');
           },
           (error) => {}
         );
       });
     } else {
+    }
+  }
+  onSortDirection() {
+    if (this.SortDirection === 'desc') {
+      this.SortDirection = 'asc';
+    } else {
+      this.SortDirection = 'desc';
     }
   }
 }
