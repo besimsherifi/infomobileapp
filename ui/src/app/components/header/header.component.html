@@ -1,11 +1,9 @@
 <div class="header" fxLayout="row" fxLayoutWrap>
-  <h1 class="logoName" routerLink="/">eCommerce App</h1>
+  <h1 class="logoName" style="font: poppins" [routerLink]="['/']">eCommerce App</h1>
 
   <i class="material-icons-outlined" routerLink="/settings">settings</i>
 </div>
 <div style="width: 100%" fxLayout="row" fxLayoutWrap>
   <i class="material-icons" routerLink="/menu">east</i>
-  <app-search
-    style="width: -webkit-fill-available; margin-right: 25px"
-  ></app-search>
+  <app-search style="width: 100%; margin-right: 35px"></app-search>
 </div>

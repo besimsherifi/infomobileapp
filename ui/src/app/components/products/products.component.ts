@@ -17,12 +17,14 @@ export class ProductsComponent implements OnInit {
     private searchService: SearchService
   ) {}
 
-  searchTextt;  
+  searchTextt;
   SortbyParam = '';
   SortDirection = 'asc';
 
   allproducts: any = [];
   companies: any = [];
+  // private API_URL = 'http://88.99.184.172:82/api';
+  //  imgpath = 'http://88.99.184.172:82/ProductsImages/';
   imgpath = 'https://localhost:44364/ProductsImages/';
   // slider rangekm
 

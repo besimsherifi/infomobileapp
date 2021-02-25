@@ -1,0 +1,9 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 0fr);
+}
+.card-image {
+  width: 122px;
+  height: 96px;
+}

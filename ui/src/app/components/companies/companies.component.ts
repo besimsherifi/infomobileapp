@@ -9,7 +9,6 @@ import { SearchService } from '../../search.service';
   styleUrls: ['./companies.component.css'],
 })
 export class CompaniesComponent implements OnInit {
-  
   searchTextt;
   router: any;
   constructor(
@@ -18,8 +17,8 @@ export class CompaniesComponent implements OnInit {
     private searchService: SearchService
   ) {}
 
-  
   compani: any = [];
+  // imgpath = 'http://88.99.184.172:82/';
   imgpath = 'https://localhost:44364/';
   companies: any = [];
 
@@ -67,8 +66,7 @@ export class CompaniesComponent implements OnInit {
         this.dataService.getCrmCompaniesByUserAddress(data).subscribe(
           (formated) => {
             this.companies = formated;
-         
-           
+
             console.log(this.companies, 'Companya');
           },
           (error) => {}

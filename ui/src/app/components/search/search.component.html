@@ -1,7 +1,4 @@
-<div
-  style="width: 100%"
-  class="p-1 searchi bg-light rounded rounded-pill shadow-sm mb-4"
->
+<div style="width: 100%" class="p-1 searchi rounded rounded-pill mb-4">
   <div class="input-group">
     <div class="input-group-prepend">
       <button
@@ -18,9 +15,10 @@
       [(ngModel)]="searchText"
       (keyup)="changeFilter($event)"
       autocomplete="off"
-      placeholder="&#61442; Search here"
+      placeholder="Search here"
       aria-describedby="button-addon2"
-      class="form-control border-0 bg-light"
+      class="form-control"
+      style="margin: 1px; border: 1px; border-radius: 15px"
     />
   </div>
 </div>
