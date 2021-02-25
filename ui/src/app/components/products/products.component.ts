@@ -17,7 +17,7 @@ export class ProductsComponent implements OnInit {
     private searchService: SearchService
   ) {}
 
-  searchTextt;  
+  searchTextt;
   SortbyParam = '';
   SortDirection = 'asc';
 
