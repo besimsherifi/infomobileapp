@@ -58,3 +58,7 @@ button:focus {
   border-radius: 6px;
   opacity: 1;
 }
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: #e58d00;
+}

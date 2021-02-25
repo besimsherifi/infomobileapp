@@ -44,14 +44,7 @@ export class ProductdetailsComponent implements OnInit {
       .subscribe((data) => {
         this.products = data,
         console.log(data, 'Produkteteeeeee');
-                            if (this.products.length < 1) {
-                              this.id--;
-                              if (this.id === 0) {
-                                this.id = 2;
-                              }
-                              this.router.navigate(['/detail', this.id]);
 
-                            }
                             this.isprodfav();
       },
     (error) => {
@@ -62,6 +55,7 @@ export class ProductdetailsComponent implements OnInit {
 
     this.dataservice.getProducts().subscribe((formated) => {
       this.allproducts = formated
+      console.log(this.allproducts)
 
     }
 
@@ -75,19 +69,41 @@ export class ProductdetailsComponent implements OnInit {
   }
 
   goNext(){
-    console.log(this.id , 'ProoddddIDD');
+    let item = this.allproducts.find(x => x.id === this.products[0].id);
+    let index = this.allproducts.indexOf(item);
+    if(index === this.allproducts.length -1){
+      this.router.navigate(['/detail', this.allproducts[0].id]);
+    }
+    else{
+      let newindex = index + 1;
+      console.log(newindex, 'prodi')
+      let newprod = this.allproducts[newindex];
+      this.router.navigate(['/detail', newprod.id]);
+    }
 
-    this.router.navigate(['/detail', this.id + 1]);
 
 
   }
 
  goBack() {
-  this.id--;
-  if (this.id === 0) {
-   this.id = 1;
- }
-  this.router.navigate(['/detail', this.id]);
+  let item = this.allproducts.find(x => x.id === this.products[0].id);
+
+    let index = this.allproducts.indexOf(item);
+
+    if(index === 0 ){
+      let lastitem = this.allproducts[this.allproducts.length - 1]
+      this.router.navigate(['/detail', lastitem.id])
+    }
+    else{
+      let newindex = index -1;
+
+    console.log(newindex, 'prodi')
+    let newprod = this.allproducts[newindex];
+    console.log(newprod);
+
+    this.router.navigate(['/detail', newprod.id]);
+    }
+
 
   }
 
@@ -125,7 +141,11 @@ isprodfav(){
       this.isFavorite = true;
       }else{
         this.isFavorite = false
+
       }
+    }
+    else{
+      console.log('favorite not found')
     }
 
 }
