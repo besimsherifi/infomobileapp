@@ -1,3 +1,4 @@
+import { ICompany } from './interfaces/ICompany';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -20,7 +21,7 @@ export class DataService {
   
   getcompaniesbyID(id): Observable<any>{
     // return this.http.get<IProduct>('http://88.99.184.172:82/api/companyapi/details', { params: { id} });
-    return this.http.get<IProduct>('https://localhost:44364/api/companyapi/compdetails', { params: { id} });
+    return this.http.get<ICompany>('https://localhost:44364/api/companyapi/compdetails', { params: { id} });
   }
 
 

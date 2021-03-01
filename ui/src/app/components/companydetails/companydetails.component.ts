@@ -17,42 +17,30 @@ export class CompanydetailsComponent implements OnInit {
   id;
   public data: any;
   companies: any = [];
+  value: number = 25;
   constructor(public dataservice: DataService,
     private route: ActivatedRoute,
     private router: Router
+
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
-  async ngOnInit() {
-    await this.route.paramMap
-      .pipe(
-        switchMap((params) => {
-          this.id = +params.get('id');
-
-          return this.getCompany(+params.get('id'));
-        })
-      )
-      .subscribe(
-        (data) => {
-          (this.company = data), console.log(data, 'Company');
-          if (this.company.length < 1) {
-            this.id--;
-            if (this.id === 0) {
-              this.id = 2;
-            }
-            this.router.navigate(['/detail', this.id]);
-          }
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-
+    ngOnInit() {
+    this.getProduct(this.route.snapshot.paramMap.get('id'));
+  }
+  getProduct(id) {
+    this.dataservice.getcompaniesbyID(id).subscribe(
+      (data) => {
+        this.companies = data;
+        console.log(data, 'curentproduct');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
-  getCompany(id) {
-    return this.dataservice.getcompaniesbyID(id);
-  }
+  
 
 }
