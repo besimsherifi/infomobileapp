@@ -1,61 +1,56 @@
-
-
-.slider{
+.slider {
   margin-top: 15px;
-  margin-left:30px;
+  margin-left: 30px;
   margin-right: 30px;
-
 }
 
-
-
-.ifilter{
+.ifilter {
   margin-left: 20px;
-  color: #E58D00;
-
+  color: #e58d00;
 }
 
 drag-scroll {
   height: 50px;
 }
+
+drag-scroll-content {
+  margin-top: 10px;
+}
 button {
   height: 33px;
   width: 138px;
-  margin-left:5px;
+  margin-top: 5px;
+  margin-left: 10px;
   border-radius: 50px;
   text-align: center;
-  color: #E58D00;
-
+  color: #e58d00;
 }
 button:focus {
   outline: none;
 }
-.active{
-  background: #E58D00;
+.active {
+  background: #e58d00;
   color: white;
 }
 
 .slider ::ng-deep .ngx-slider .ngx-slider-pointer {
-background-color: #E58D00;
-
+  background-color: #e58d00;
 }
 
 .slider ::ng-deep .ngx-slider .ngx-slider-pointer:focus {
-
   outline: none;
-  }
-  .slider ::ng-deep .ngx-slider .ngx-slider-pointer.ngx-slider-active:after{
-   background-color: white;
-  }
+}
+.slider ::ng-deep .ngx-slider .ngx-slider-pointer.ngx-slider-active:after {
+  background-color: white;
+}
 
-  .row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
-  }
-
-  .card-image {
-    width: 122px;
-    height: 96px;
-  }
+.card-image {
+  width: 122px;
+  height: 96px;
+}

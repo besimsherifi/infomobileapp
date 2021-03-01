@@ -1,0 +1,37 @@
+<!--Header-->
+<div class="header" fxLayout="row" fxLayoutWrap>
+    <h1 class="logoName">eCommerce App</h1>
+    <i class="material-icons-outlined" routerLink="/settings">settings</i>
+  </div>
+  <div fxLayout="row" fxLayoutWrap>
+    <i class="material-icons" routerLink="/menu">west</i>
+  </div>
+  <div *ngFor="let c of company">
+    <div style="display: flex; justify-content: space-between">
+
+      <mat-card-title
+        style="
+          font-size: large;
+          color: #553e00;
+          font-weight: bold;
+          align-self: center;
+        "
+        >{{ c.nameSQ }}</mat-card-title
+      >
+ 
+    </div>
+  
+    <!--Produktet-->
+    <drag-scroll>
+      <img
+        mat-card-image
+ class="rounded-circle"
+        src="{{ imgpath + c.image }}"
+        
+      />
+      <mat-card-content>
+      </mat-card-content>
+    </drag-scroll>
+  
+  </div>
+  

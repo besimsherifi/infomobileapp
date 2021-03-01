@@ -1,23 +1,30 @@
 .logoName {
   margin-top: 13px;
   margin-left: 20px;
+  width: 139px;
+  height: 23px;
+  color: var(--unnamed-color-553e00);
   text-align: left;
-  color: #553E00;
-}
-.material-icons-outlined {
-  margin-right: 15px;
-  margin-top: 10px;
-  font-size: 33px;
-  color: #E58D00
-}
-.material-icons {
-  margin-left: 20px;
-  margin-top: 10px;
-  font-size: 33px;
-  color: #E58D00
+  font: normal normal bold 16px/25px Poppins;
+  letter-spacing: 0px;
+  color: #553e00;
+  opacity: 1;
 }
 .header {
-  justify-content: space-between
+  justify-content: space-between;
 }
-
+.material-icons-outlined {
+  margin-right: 35px;
+  margin-top: 13px;
+  width: 20px;
+  height: 21px;
+  color: #e58d00;
+  opacity: 1;
+}
+.material-icons {
+  margin-left: 6px;
+  margin-top: 10px;
+  font-size: 33px;
+  color: #e58d00;
+}
 

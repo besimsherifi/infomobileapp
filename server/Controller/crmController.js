@@ -2,8 +2,10 @@ const axios = require('axios');
 const { response } = require('express');
 const geolib = require('geolib');
 
+
 exports.crmdata = (req,res,next) => {
     const {latitude,longitude,radius} = req.body;
+  // axios.get('http://88.99.184.172:82/api/companyapi/index',)
   axios.get('https://localhost:44364/api/companyapi/index',)
     .then(async function (response) {
         const company = response.data;

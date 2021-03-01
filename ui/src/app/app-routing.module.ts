@@ -1,3 +1,4 @@
+import { CompanydetailsComponent } from './components/companydetails/companydetails.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -26,7 +27,9 @@ const routes: Routes = [
   { path: 'settings', component: SetingsComponent},
   { path: 'menu', component: MenuComponent},
   { path: 'filter', component: FilterComponent},
-  { path: 'detail/:id', component: ProductdetailsComponent},
+  { path: 'productdetail/:id', component: ProductdetailsComponent},
+  { path: 'companydetail/:id', component: CompanydetailsComponent},
+
   {path: 'favorite', component: FavoritesComponent},
                     ];
 
