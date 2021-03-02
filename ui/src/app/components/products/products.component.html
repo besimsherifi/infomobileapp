@@ -27,7 +27,7 @@
 <!--Produktet-->
 
 
-<label
+<!-- <label
   style="
     top: 65px;
     margin-left: 20px;
@@ -41,10 +41,11 @@
     opacity: 1;
   "
   >Sort by</label
->
+> -->
 
 <div style="display: flex; margin-left: 20px; margin-right: 20px">
-  <select class="sprod" [(ngModel)]="SortbyParam">
+  <select class="sprod" [(ngModel)]="SortbyParam" >
+    <option value="" disabled selected hidden>Sort by:</option>
     <option value="nameSQ">ProductName</option>
     <option value="sellingPriceWithVat">Price</option>
   </select>
