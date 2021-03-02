@@ -31,7 +31,7 @@
     style="padding: 5px"
     *ngFor="let favorites of data "
   >
-    <mat-card>
+    <mat-card    [routerLink]="['/productdetail', favorites.id]">
       <div fxLayoutAlign="center center" style="margin: 3px">
         <img
           mat-card-image
