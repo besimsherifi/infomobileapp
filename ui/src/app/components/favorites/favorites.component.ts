@@ -9,8 +9,8 @@ import { SearchService } from 'src/app/search.service';
 export class FavoritesComponent implements OnInit {
   searchTextt;
   data: any;
-  // imgpath = 'http://88.99.184.172:82/ProductsImages/';
-  imgpath = 'https://localhost:44364/ProductsImages/';
+  imgpath = 'https://develop.conome.mk/ProductsImages/';
+  // imgpath = 'https://develop.conome.mkProductsImages/';
   constructor(private searchService: SearchService) {}
 
   ngOnInit() {

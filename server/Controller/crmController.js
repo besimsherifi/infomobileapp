@@ -5,8 +5,8 @@ const geolib = require('geolib');
 
 exports.crmdata = (req,res,next) => {
     const {latitude,longitude,radius} = req.body;
-  // axios.get('http://88.99.184.172:82/api/companyapi/index',)
-  axios.get('https://localhost:44364/api/companyapi/index',)
+  // axios.get('https://develop.conome.mk/api/companyapi/index',)
+  axios.get('https://develop.conome.mk/api/companyapi/index',)
     .then(async function (response) {
         const company = response.data;
         var companies = [];
