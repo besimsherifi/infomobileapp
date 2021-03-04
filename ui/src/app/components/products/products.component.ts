@@ -28,8 +28,8 @@ export class ProductsComponent implements OnInit {
   // imgpath = 'https://develop.conome.mkProductsImages/';
   // slider rangekm
 
-  value: number = 25;
-  options: Options = {
+    value = JSON.parse(localStorage.getItem('value'));
+    options: Options = {
     showTicksValues: true,
     stepsArray: [
       { value: 35, legend: 'km' },
@@ -40,6 +40,13 @@ export class ProductsComponent implements OnInit {
   };
   detectchange(value) {
     this.findMe();
+    if(localStorage.getItem('value') == null) {
+      this.value = 35;
+      localStorage.setItem('value', JSON.stringify(this.value))
+    }
+    else {
+      localStorage.setItem('value', JSON.stringify(value))
+    }
   }
   ngOnInit() {
     this.searchService.searchTextt.subscribe((val) => {
@@ -47,6 +54,7 @@ export class ProductsComponent implements OnInit {
     });
     this.getLoc();
     this.findMe();
+    this.detectchange(this.value);
   }
   getLoc() {
     this.locService.getLocation().then((resp) => {
