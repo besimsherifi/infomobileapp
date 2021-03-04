@@ -13,7 +13,7 @@ import { StorageMap } from '@ngx-pwa/local-storage';
 @Injectable()
 export class ProductdetailsComponent implements OnInit {
   products: any = [];
-  imgpath = 'https://localhost:44364/ProductsImages/';
+  imgpath = 'https://develop.conome.mk/ProductsImages/';
   id;
   isFavorite: boolean = false;
   public data: any;
@@ -72,13 +72,13 @@ export class ProductdetailsComponent implements OnInit {
     let item = this.allproducts.find(x => x.id === this.products[0].id);
     let index = this.allproducts.indexOf(item);
     if(index === this.allproducts.length -1){
-      this.router.navigate(['/detail', this.allproducts[0].id]);
+      this.router.navigate(['/productdetail', this.allproducts[0].id]);
     }
     else{
       let newindex = index + 1;
       console.log(newindex, 'prodi')
       let newprod = this.allproducts[newindex];
-      this.router.navigate(['/detail', newprod.id]);
+      this.router.navigate(['/productdetail', newprod.id]);
     }
 
 
@@ -92,7 +92,7 @@ export class ProductdetailsComponent implements OnInit {
 
     if(index === 0 ){
       let lastitem = this.allproducts[this.allproducts.length - 1]
-      this.router.navigate(['/detail', lastitem.id])
+      this.router.navigate(['/productdetail', lastitem.id])
     }
     else{
       let newindex = index -1;
@@ -101,7 +101,7 @@ export class ProductdetailsComponent implements OnInit {
     let newprod = this.allproducts[newindex];
     console.log(newprod);
 
-    this.router.navigate(['/detail', newprod.id]);
+    this.router.navigate(['/productdetail', newprod.id]);
     }
 
 

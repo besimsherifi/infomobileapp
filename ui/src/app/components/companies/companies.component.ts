@@ -18,8 +18,8 @@ export class CompaniesComponent implements OnInit {
   ) {}
 
   compani: any = [];
-  // imgpath = 'http://88.99.184.172:82/';
-  imgpath = 'https://localhost:44364/';
+  imgpath = 'https://develop.conome.mk/';
+  // imgpath = 'https://develop.conome.mk';
   companies: any = [];
 
   // slider rangekm

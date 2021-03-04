@@ -1,4 +1,3 @@
-
 import { Component, ElementRef, Injectable, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DataService } from '../../data.service';
@@ -13,9 +12,9 @@ import { StorageMap } from '@ngx-pwa/local-storage';
 })
 export class CompanydetailsComponent implements OnInit {
   company: any = [];
-  // imgpath = 'http://88.99.184.172:82/ProductsImages/';
-  imgpath = 'https://localhost:44364/';
-  imgpathi = 'https://localhost:44364/ProductsImages/';
+  imgpath = 'https://develop.conome.mk/ProductsImages/';
+  // imgpath = 'https://develop.conome.mk';
+  imgpathi = 'https://develop.conome.mkProductsImages/';
   
   id;
   public data: any;
@@ -40,14 +39,7 @@ export class CompanydetailsComponent implements OnInit {
       )
       .subscribe(
         (data) => {
-          (this.company = data), console.log(data, 'Company');
-          if (this.company.length < 1) {
-            this.id--;
-            if (this.id === 0) {
-              this.id = 2;
-            }
-            this.router.navigate(['/detail', this.id]);
-          }
+          this.company = data;
         },
         (error) => {
           console.log(error);
@@ -60,6 +52,7 @@ export class CompanydetailsComponent implements OnInit {
   getCompany(id) {
     return this.dataservice.getcompaniesbyID(id);
   }
+  
   findMe(id) {
     
         this.dataservice.getcompaniesbyID(id).subscribe(

@@ -17,8 +17,8 @@ export class SetingsComponent implements OnInit {
   }
 
   data: any;
-  // imgpath = 'http://88.99.184.172:82/ProductsImages/';
-  imgpath = 'https://localhost:44364/ProductsImages/';
+  imgpath = 'https://develop.conome.mk/ProductsImages/';
+  // imgpath = 'https://develop.conome.mkProductsImages/';
 
   ngOnInit() {
     this.data = JSON.parse(localStorage.getItem('fav'));
