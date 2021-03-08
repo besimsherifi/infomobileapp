@@ -12,7 +12,7 @@ export class FavoritesComponent implements OnInit {
   searchTextt;
   data: any;
   imgpath = 'https://develop.conome.mk/ProductsImages/';
-  // imgpath = 'https://develop.conome.mkProductsImages/';
+
   constructor(private searchService: SearchService, private router: Router,) {}
 
   ngOnInit() {

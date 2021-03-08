@@ -12,10 +12,9 @@ import { StorageMap } from '@ngx-pwa/local-storage';
 })
 export class CompanydetailsComponent implements OnInit {
   company: any = [];
-  imgpath = 'https://develop.conome.mk/ProductsImages/';
-  // imgpath = 'https://develop.conome.mk';
-  imgpathi = 'https://develop.conome.mkProductsImages/';
-  
+  imgpath = 'https://develop.conome.mk/';
+  imgpathi = 'https://develop.conome.mk/ProductsImages/';
+
   id;
   public data: any;
   allproducts: any = [];
@@ -52,9 +51,9 @@ export class CompanydetailsComponent implements OnInit {
   getCompany(id) {
     return this.dataservice.getcompaniesbyID(id);
   }
-  
+
   findMe(id) {
-    
+
         this.dataservice.getcompaniesbyID(id).subscribe(
           (formated) => {
             this.prodcom = formated.map((c) => {
@@ -63,7 +62,7 @@ export class CompanydetailsComponent implements OnInit {
                   name: c.nameSQ,
                   id: c.id,
                 },
-              
+
                 productsi: c.productsi,
               };
             });
@@ -79,5 +78,5 @@ export class CompanydetailsComponent implements OnInit {
         );
       }
     }
-  
-  
+
+

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
-import { LocationService } from 'src/app/services/location.service';
 import { Options } from '@angular-slider/ngx-slider';
 import { SearchService } from '../../search.service';
+import * as geolib from 'geolib';
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
@@ -12,14 +12,14 @@ export class CompaniesComponent implements OnInit {
   searchTextt;
   router: any;
   constructor(
-    private locService: LocationService,
+
     private dataService: DataService,
     private searchService: SearchService
   ) {}
 
   compani: any = [];
+  // imgpath = 'https://localhost:44364/';
   imgpath = 'https://develop.conome.mk/';
-  // imgpath = 'https://develop.conome.mk';
   companies: any = [];
 
   // slider rangekm
@@ -42,37 +42,43 @@ export class CompaniesComponent implements OnInit {
     this.searchService.searchTextt.subscribe((val) => {
       this.searchTextt = val;
     });
-    this.getLoc();
     this.findMe();
   }
 
-  getLoc() {
-    this.locService.getLocation().then((resp) => {
-      console.log(resp.lng);
-      console.log(resp.lat);
-    });
-  }
 
   findMe() {
     let decodedData;
 
-    if (navigator.geolocation) {
+
       navigator.geolocation.getCurrentPosition((position) => {
-        const data = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          radius: this.value * 1000,
-        };
-        this.dataService.getCrmCompaniesByUserAddress(data).subscribe(
+
+        this.dataService.getCrmCompaniesByUserAddress().subscribe(
           (formated) => {
             this.companies = formated;
+            this.compani = [];
+            this.companies.forEach(formate => {
+              formate.addresses.forEach(adress => {
+                const latitudee = adress.latLng.lat;
+                const longitudee = adress.latLng.lng;
+                const radius = this.value * 1000;
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                var geolibi = geolib.isPointWithinRadius(
+                  { latitude: latitude, longitude: longitude },
+                  { latitude: latitudee, longitude: longitudee },
+                  radius //meters
+                );
+                if(geolibi){
+                this.compani.push(formate)
+            }
+            });
+          });
 
             console.log(this.companies, 'Companya');
           },
           (error) => {}
         );
       });
-    } else {
     }
-  }
 }
