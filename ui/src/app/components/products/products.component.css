@@ -4,11 +4,10 @@
   margin-right: 30px;
 }
 
-.ifilter{
+.ifilter {
   margin-left: 20px;
   margin-top: 10px;
-  color: #E58D00 !important;;
-
+  color: #e58d00 !important;
 }
 select:focus {
   outline: none;
@@ -20,32 +19,29 @@ drag-scroll {
 button {
   height: 33px;
   width: 138px;
-  margin-left:10px;
+  margin-left: 10px;
   border-radius: 50px;
   text-align: center;
-  color: #E58D00;
-
+  color: #e58d00;
 }
 button:focus {
   outline: none;
 }
-.active{
-  background: #E58D00;
+.active {
+  background: #e58d00;
   color: white;
 }
 
 .slider ::ng-deep .ngx-slider .ngx-slider-pointer {
-background-color: #E58D00;
-
+  background-color: #e58d00;
 }
 
 .slider ::ng-deep .ngx-slider .ngx-slider-pointer:focus {
-
   outline: none;
-  }
-  .slider ::ng-deep .ngx-slider .ngx-slider-pointer.ngx-slider-active:after{
-   background-color: white;
-  }
+}
+.slider ::ng-deep .ngx-slider .ngx-slider-pointer.ngx-slider-active:after {
+  background-color: white;
+}
 
 .grid {
   display: grid;

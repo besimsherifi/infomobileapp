@@ -13,7 +13,6 @@ import * as geolib from 'geolib';
 export class ProductsComponent implements OnInit {
   router: any;
   constructor(
-
     private dataService: DataService,
     private searchService: SearchService
   ) {}
@@ -26,9 +25,8 @@ export class ProductsComponent implements OnInit {
   products: any = [];
   imgpath = 'https://develop.conome.mk/ProductsImages/';
 
-
-    value = JSON.parse(localStorage.getItem('value'));
-    options: Options = {
+  value = JSON.parse(localStorage.getItem('value'));
+  options: Options = {
     showTicksValues: true,
     stepsArray: [
       { value: 35, legend: 'km' },
@@ -39,12 +37,11 @@ export class ProductsComponent implements OnInit {
   };
   detectchange(value) {
     this.findMe();
-    if(localStorage.getItem('value') == null) {
+    if (localStorage.getItem('value') == null) {
       this.value = 35;
-      localStorage.setItem('value', JSON.stringify(this.value))
-    }
-    else {
-      localStorage.setItem('value', JSON.stringify(value))
+      localStorage.setItem('value', JSON.stringify(this.value));
+    } else {
+      localStorage.setItem('value', JSON.stringify(value));
     }
   }
   ngOnInit() {
@@ -59,39 +56,34 @@ export class ProductsComponent implements OnInit {
   findMe() {
     //  let decodedData;
 
-      navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.dataService.getAllProducts().subscribe(
+        (formated) => {
+          this.products = formated;
+          this.allproducts = [];
+          this.products.forEach((formate) => {
+            formate.addresses.forEach((adress) => {
+              const latitudee = adress.latLng.lat;
+              const longitudee = adress.latLng.lng;
+              const radius = this.value * 1000;
+              var latitude = position.coords.latitude;
+              var longitude = position.coords.longitude;
 
-        this.dataService.getAllProducts().subscribe(
-          (formated) => {
-            this.products = formated;
-            this.allproducts = [];
-            this.products.forEach(formate => {
-              formate.addresses.forEach(adress => {
-                const latitudee = adress.latLng.lat;
-                const longitudee = adress.latLng.lng;
-                const radius = this.value * 1000;
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-
-                var geolibi = geolib.isPointWithinRadius(
-                  { latitude: latitude, longitude: longitude },
-                  { latitude: latitudee, longitude: longitudee },
-                  radius //meters
-                );
-                if(geolibi){
-
-                this.allproducts.push(formate)
-
-
-            }
+              var geolibi = geolib.isPointWithinRadius(
+                { latitude: latitude, longitude: longitude },
+                { latitude: latitudee, longitude: longitudee },
+                radius //meters
+              );
+              if (geolibi) {
+                this.allproducts.push(formate);
+              }
             });
           });
-            console.log(this.products, 'Company');
-          },
-          (error) => {}
-        );
-      });
-
+          console.log(this.products, 'Company');
+        },
+        (error) => {}
+      );
+    });
   }
   onSortDirection() {
     if (this.SortDirection === 'desc') {

@@ -7,10 +7,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./setings.component.css'],
 })
 export class SetingsComponent implements OnInit {
-  constructor(
-    private lokacioni: Location
-  ) {}
-
+  constructor(private lokacioni: Location) {}
 
   backClicked() {
     this.lokacioni.back();
@@ -18,7 +15,6 @@ export class SetingsComponent implements OnInit {
 
   data: any;
   imgpath = 'https://develop.conome.mk/ProductsImages/';
-
 
   ngOnInit() {
     this.data = JSON.parse(localStorage.getItem('fav'));

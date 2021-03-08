@@ -8,7 +8,7 @@ import { StorageMap } from '@ngx-pwa/local-storage';
 @Component({
   selector: 'app-companydetails',
   templateUrl: './companydetails.component.html',
-  styleUrls: ['./companydetails.component.css']
+  styleUrls: ['./companydetails.component.css'],
 })
 export class CompanydetailsComponent implements OnInit {
   company: any = [];
@@ -20,7 +20,8 @@ export class CompanydetailsComponent implements OnInit {
   allproducts: any = [];
   companies: any = [];
   prodcom: any = [];
-  constructor(public dataservice: DataService,
+  constructor(
+    public dataservice: DataService,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -44,8 +45,7 @@ export class CompanydetailsComponent implements OnInit {
           console.log(error);
         }
       );
-      this.findMe(this.id);
-
+    this.findMe(this.id);
   }
 
   getCompany(id) {
@@ -53,30 +53,27 @@ export class CompanydetailsComponent implements OnInit {
   }
 
   findMe(id) {
+    this.dataservice.getcompaniesbyID(id).subscribe(
+      (formated) => {
+        this.prodcom = formated.map((c) => {
+          return {
+            company: {
+              name: c.nameSQ,
+              id: c.id,
+            },
 
-        this.dataservice.getcompaniesbyID(id).subscribe(
-          (formated) => {
-            this.prodcom = formated.map((c) => {
-              return {
-                company: {
-                  name: c.nameSQ,
-                  id: c.id,
-                },
-
-                productsi: c.productsi,
-              };
-            });
-            this.allproducts = [];
-            for (let i = 0; i < this.prodcom.length; i++) {
-              for (let j = 0; j < this.prodcom[i].productsi.length; j++) {
-                this.allproducts.push(this.prodcom[i].productsi[j]);
-              }
-            }
-            console.log(this.prodcom, 'Company');
-          },
-          (error) => {}
-        );
-      }
-    }
-
-
+            productsi: c.productsi,
+          };
+        });
+        this.allproducts = [];
+        for (let i = 0; i < this.prodcom.length; i++) {
+          for (let j = 0; j < this.prodcom[i].productsi.length; j++) {
+            this.allproducts.push(this.prodcom[i].productsi[j]);
+          }
+        }
+        console.log(this.prodcom, 'Company');
+      },
+      (error) => {}
+    );
+  }
+}
