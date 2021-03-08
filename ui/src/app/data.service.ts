@@ -11,9 +11,15 @@ import { IProduct } from './interfaces/IProduct';
 export class DataService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  getCrmCompaniesByUserAddress(data): Observable<any> {
+  getCrmCompaniesByUserAddress(): Observable<any> {
     // console.log(data, 'data');
-    return this.http.post('https://api.conome.mk/api/crm/c', data);
+    return this.http.get<any>('https://develop.conome.mk/api/companyapi/index');
+  }
+
+
+  getAllProducts(): Observable<any> {
+    // console.log(data, 'data');
+    return this.http.get<any>('https://develop.conome.mk/api/companyapi/allproducts');
   }
 
   getcompaniesbyID(id): Observable<any> {

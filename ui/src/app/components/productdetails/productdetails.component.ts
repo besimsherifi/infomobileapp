@@ -32,7 +32,7 @@ export class ProductdetailsComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
-  // tslint:disable-next-line:typedef
+
  async ngOnInit() {
     await this.route.paramMap
       .pipe(
