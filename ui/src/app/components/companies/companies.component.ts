@@ -12,7 +12,6 @@ export class CompaniesComponent implements OnInit {
   searchTextt;
   router: any;
   constructor(
-
     private dataService: DataService,
     private searchService: SearchService
   ) {}
@@ -45,40 +44,37 @@ export class CompaniesComponent implements OnInit {
     this.findMe();
   }
 
-
   findMe() {
     let decodedData;
 
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.dataService.getCrmCompaniesByUserAddress().subscribe(
+        (formated) => {
+          this.companies = formated;
+          this.compani = [];
+          this.companies.forEach((formate) => {
+            formate.addresses.forEach((adress) => {
+              const latitudee = adress.latLng.lat;
+              const longitudee = adress.latLng.lng;
+              const radius = this.value * 1000;
+              var latitude = position.coords.latitude;
+              var longitude = position.coords.longitude;
 
-      navigator.geolocation.getCurrentPosition((position) => {
-
-        this.dataService.getCrmCompaniesByUserAddress().subscribe(
-          (formated) => {
-            this.companies = formated;
-            this.compani = [];
-            this.companies.forEach(formate => {
-              formate.addresses.forEach(adress => {
-                const latitudee = adress.latLng.lat;
-                const longitudee = adress.latLng.lng;
-                const radius = this.value * 1000;
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-
-                var geolibi = geolib.isPointWithinRadius(
-                  { latitude: latitude, longitude: longitude },
-                  { latitude: latitudee, longitude: longitudee },
-                  radius //meters
-                );
-                if(geolibi){
-                this.compani.push(formate)
-            }
+              var geolibi = geolib.isPointWithinRadius(
+                { latitude: latitude, longitude: longitude },
+                { latitude: latitudee, longitude: longitudee },
+                radius //meters
+              );
+              if (geolibi) {
+                this.compani.push(formate);
+              }
             });
           });
 
-            console.log(this.companies, 'Companya');
-          },
-          (error) => {}
-        );
-      });
-    }
+          console.log(this.companies, 'Companya');
+        },
+        (error) => {}
+      );
+    });
+  }
 }

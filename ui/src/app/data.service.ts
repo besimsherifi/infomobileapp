@@ -16,15 +16,17 @@ export class DataService {
     return this.http.get<any>('https://develop.conome.mk/api/companyapi/index');
   }
 
-
   getAllProducts(): Observable<any> {
     // console.log(data, 'data');
-    return this.http.get<any>('https://develop.conome.mk/api/companyapi/allproducts');
+    return this.http.get<any>(
+      'https://develop.conome.mk/api/companyapi/allproducts'
+    );
   }
 
   getcompaniesbyID(id): Observable<any> {
     return this.http.get<IProduct>(
-      'https://develop.conome.mk/api/companyapi/compdetails', { params: { id } }
+      'https://develop.conome.mk/api/companyapi/compdetails',
+      { params: { id } }
     );
   }
 

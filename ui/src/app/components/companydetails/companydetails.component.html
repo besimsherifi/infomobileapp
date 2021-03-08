@@ -92,7 +92,7 @@
               opacity: 1;
             "
           >
-           {{c.cityMK}}
+            {{ c.cityMK }}
           </p>
         </li>
       </ul>
@@ -113,7 +113,7 @@
               opacity: 1;
             "
           >
-          {{c.telephone}}
+            {{ c.telephone }}
           </p>
         </li>
       </ul>
@@ -134,7 +134,7 @@
               opacity: 1;
             "
           >
-           {{c.email}}
+            {{ c.email }}
           </p>
         </li>
       </ul>
@@ -207,49 +207,39 @@
       <button mat-raised-button routerLinkActive="active">Bakery</button>
       <button mat-raised-button routerLinkActive="active">Clothing</button>
     </drag-scroll>
-  
-
   </div>
-    
-<div class="row" style="margin: 5px; margin-bottom: 10px">
-  <div
-    *ngFor="
-      let c of allproducts
-    "
-    class="col-6"
-    style="padding: 5px"
-  >
-    <mat-card [routerLink]="['/productdetail', c.id]">
-      <div fxLayoutAlign="center center" style="margin: 3px">
-        <img
-          style="margin-top: 1px"
-          mat-card-image
-          class="card-image"
-          src="{{ imgpathi + c.image }}"
-        />
-      </div>
-      <mat-card-title
-        style="font-size: large; color: #e58d00; font-weight: bold"
-        >{{ c.nameSQ }}</mat-card-title
-      >
-      <mat-card-content>
-        <span style="display: flex; justify-content: space-between"
-          ><p style="font-size: 12px">Category</p>
-          <p
-            style="
-              float: right;
-              font-size: 12;
-              font-weight: bold;
-              color: #035f11;
-            "
-          >
-            {{ c.sellingPriceWithVat }}den
-          </p></span
+
+  <div class="row" style="margin: 5px; margin-bottom: 10px">
+    <div *ngFor="let c of allproducts" class="col-6" style="padding: 5px">
+      <mat-card [routerLink]="['/productdetail', c.id]">
+        <div fxLayoutAlign="center center" style="margin: 3px">
+          <img
+            style="margin-top: 1px"
+            mat-card-image
+            class="card-image"
+            src="{{ imgpathi + c.image }}"
+          />
+        </div>
+        <mat-card-title
+          style="font-size: large; color: #e58d00; font-weight: bold"
+          >{{ c.nameSQ }}</mat-card-title
         >
-      </mat-card-content>
-    </mat-card>
-
+        <mat-card-content>
+          <span style="display: flex; justify-content: space-between"
+            ><p style="font-size: 12px">Category</p>
+            <p
+              style="
+                float: right;
+                font-size: 12;
+                font-weight: bold;
+                color: #035f11;
+              "
+            >
+              {{ c.sellingPriceWithVat }}den
+            </p></span
+          >
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
-</div>
-
 </div>

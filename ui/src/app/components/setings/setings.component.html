@@ -26,12 +26,8 @@
   </p>
 </div>
 <div class="row" style="margin: 5px">
-  <div
-    class="col-6"
-    style="padding: 5px"
-    *ngFor="let favorites of data "
-  >
-    <mat-card    [routerLink]="['/productdetail', favorites.id]">
+  <div class="col-6" style="padding: 5px" *ngFor="let favorites of data">
+    <mat-card [routerLink]="['/productdetail', favorites.id]">
       <div fxLayoutAlign="center center" style="margin: 3px">
         <img
           mat-card-image
@@ -51,4 +47,3 @@
     </mat-card>
   </div>
 </div>
-
