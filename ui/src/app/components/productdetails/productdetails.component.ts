@@ -1,4 +1,4 @@
-import { Component, ElementRef, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DataService } from '../../data.service';
 import { switchMap, map, catchError } from 'rxjs/operators';
@@ -34,14 +34,12 @@ export class ProductdetailsComponent implements OnInit {
       .pipe(
         switchMap((params) => {
           this.id = +params.get('id');
-
           return this.getProduct(+params.get('id'));
         })
       )
       .subscribe(
         (data) => {
           (this.products = data), console.log(data, 'Produkteteeeeee');
-
           this.isprodfav();
         },
         (error) => {

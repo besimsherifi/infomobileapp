@@ -2,8 +2,6 @@ import { CompanydetailsComponent } from './components/companydetails/companydeta
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
-
 import { BodyComponent } from './components/body/body.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
@@ -14,30 +12,28 @@ import { ProductdetailsComponent } from './components/productdetails/productdeta
 import { ProductsComponent } from './components/products/products.component';
 import { SetingsComponent } from './components/setings/setings.component';
 
-
-
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: '', component: BodyComponent, children: [
-    { path: 'allproducts', component: ProductCategoriesListComponent},
-  ]
-},
-  { path: '', component: ProductsComponent},
-  { path: 'companies', component: CompaniesComponent},
-  { path: 'settings', component: SetingsComponent},
-  { path: 'menu', component: MenuComponent},
-  { path: 'filter', component: FilterComponent},
-  { path: 'productdetail/:id', component: ProductdetailsComponent},
-  { path: 'companydetail/:id', component: CompanydetailsComponent},
-
-  {path: 'favorite', component: FavoritesComponent},
-                    ];
-
+  {
+    path: '',
+    component: BodyComponent,
+    children: [
+      { path: 'allproducts', component: ProductCategoriesListComponent },
+    ],
+  },
+  { path: '', component: ProductsComponent },
+  { path: 'companies', component: CompaniesComponent },
+  { path: 'settings', component: SetingsComponent },
+  { path: 'menu', component: MenuComponent },
+  { path: 'filter', component: FilterComponent },
+  { path: 'productdetail/:id', component: ProductdetailsComponent },
+  { path: 'companydetail/:id', component: CompanydetailsComponent },
+  { path: 'favorite', component: FavoritesComponent },
+];
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'disabled' })],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'disabled' }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
-
-
-
+export class AppRoutingModule {}

@@ -22,7 +22,7 @@ export class ProductsComponent implements OnInit {
   SortDirection = 'asc';
 
   allproducts: any = [];
-  products: any = [];
+  companies: any = [];
   imgpath = 'https://develop.conome.mk/ProductsImages/';
 
   value = JSON.parse(localStorage.getItem('value'));
@@ -55,35 +55,42 @@ export class ProductsComponent implements OnInit {
 
   findMe() {
     //  let decodedData;
-
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.dataService.getAllProducts().subscribe(
-        (formated) => {
-          this.products = formated;
-          this.allproducts = [];
-          this.products.forEach((formate) => {
-            formate.addresses.forEach((adress) => {
-              const latitudee = adress.latLng.lat;
-              const longitudee = adress.latLng.lng;
-              const radius = this.value * 1000;
-              var latitude = position.coords.latitude;
-              var longitude = position.coords.longitude;
-
-              var geolibi = geolib.isPointWithinRadius(
-                { latitude: latitude, longitude: longitude },
-                { latitude: latitudee, longitude: longitudee },
-                radius //meters
-              );
-              if (geolibi) {
-                this.allproducts.push(formate);
-              }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const data = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          radius: this.value * 1000,
+        };
+        this.dataService.getCrmCompaniesByUserAddress(data).subscribe(
+          (formated) => {
+            this.companies = formated.map((c) => {
+              return {
+                company: {
+                  name: c.nameSQ,
+                  id: c.id,
+                },
+                address: c.addresses.map((a) => {
+                  return {
+                    location: a.location,
+                  };
+                })[0],
+                products: c.products,
+              };
             });
-          });
-          console.log(this.products, 'Company');
-        },
-        (error) => {}
-      );
-    });
+            this.allproducts = [];
+            for (let i = 0; i < this.companies.length; i++) {
+              for (let j = 0; j < this.companies[i].products.length; j++) {
+                this.allproducts.push(this.companies[i].products[j]);
+              }
+            }
+            console.log(this.companies, 'Company');
+          },
+          (error) => {}
+        );
+      });
+    } else {
+    }
   }
   onSortDirection() {
     if (this.SortDirection === 'desc') {

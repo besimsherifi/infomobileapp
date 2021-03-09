@@ -33,7 +33,6 @@ export class CompanydetailsComponent implements OnInit {
       .pipe(
         switchMap((params) => {
           this.id = +params.get('id');
-
           return this.getCompany(+params.get('id'));
         })
       )
@@ -61,7 +60,6 @@ export class CompanydetailsComponent implements OnInit {
               name: c.nameSQ,
               id: c.id,
             },
-
             productsi: c.productsi,
           };
         });

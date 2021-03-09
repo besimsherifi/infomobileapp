@@ -1,11 +1,12 @@
 <div class="header" fxLayout="row" fxLayoutWrap>
   <h1 class="logoName">eCommerce App</h1>
-
   <i class="material-icons-outlined" (click)="backClicked()">close</i>
 </div>
+
 <div>
   <p class="settingsTitle">Settings</p>
 </div>
+
 <div class="favoriteDiv" fxLayout="row" fxLayoutWrap>
   <i class="material-icons">favorite</i>
   <p
@@ -25,6 +26,7 @@
     Favorite Products
   </p>
 </div>
+
 <div class="row" style="margin: 5px">
   <div class="col-6" style="padding: 5px" *ngFor="let favorites of data">
     <mat-card [routerLink]="['/productdetail', favorites.id]">
