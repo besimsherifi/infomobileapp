@@ -13,13 +13,13 @@ export class DataService {
 
   getCrmCompaniesByUserAddress(data): Observable<any> {
     // console.log(data, 'data');
-    return this.http.post('https://api.conome.mk/api/crm/c', data);
+    return this.http.post('http://localhost:8000/api/crm/c', data);
   }
 
 
   getcompaniesbyID(id): Observable<any> {
     return this.http.get<IProduct>(
-      'https://develop.conome.mk/api/companyapi/compdetails',{ params: { id } }
+      'https://localhost:44364/api/companyapi/compdetails',{ params: { id } }
     );
   }
 
@@ -32,13 +32,13 @@ export class DataService {
 
   getProductsbyID(id): Observable<any> {
     return this.http.get<IProduct>(
-      'https://develop.conome.mk/api/companyapi/details',{ params: { id } }
+      'https://localhost:44364/api/companyapi/details',{ params: { id } }
     );
   }
 
   getProducts(): Observable<any> {
     return this.http.get<IProduct>(
-      'https://develop.conome.mk/api/companyapi/product'
+      'https://localhost:44364/api/companyapi/product'
     );
   }
 }

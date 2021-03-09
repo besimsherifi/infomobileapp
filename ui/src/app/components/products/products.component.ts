@@ -3,7 +3,7 @@ import { DataService } from '../../data.service';
 
 import { Options } from '@angular-slider/ngx-slider';
 import { SearchService } from '../../search.service';
-import * as geolib from 'geolib';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-products',
@@ -14,7 +14,8 @@ export class ProductsComponent implements OnInit {
   router: any;
   constructor(
     private dataService: DataService,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private spinner: NgxSpinnerService
   ) {}
 
   searchTextt;
@@ -51,6 +52,13 @@ export class ProductsComponent implements OnInit {
 
     this.findMe();
     this.detectchange(this.value);
+      /** spinner starts on init */
+      this.spinner.show();
+ 
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 3000);
   }
 
   findMe() {

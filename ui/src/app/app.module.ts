@@ -11,6 +11,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+// Import library module
+import { NgxSpinnerModule } from "ngx-spinner";
 //components
 import { BodyComponent } from './components/body/body.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -55,7 +58,9 @@ import { CompanydetailsComponent } from './components/companydetails/companydeta
     Ng2SearchPipeModule,
     BrowserAnimationsModule,
     NgxWebstorageModule.forRoot(),
+    NgxSpinnerModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent],
 })
