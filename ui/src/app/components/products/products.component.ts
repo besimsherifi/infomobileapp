@@ -1,10 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
-
 import { Options } from '@angular-slider/ngx-slider';
 import { SearchService } from '../../search.service';
-import { NgxSpinnerService } from "ngx-spinner";
-
+import * as geolib from 'geolib';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -14,20 +12,16 @@ export class ProductsComponent implements OnInit {
   router: any;
   constructor(
     private dataService: DataService,
-    private searchService: SearchService,
-    private spinner: NgxSpinnerService
+    private searchService: SearchService
   ) {}
-
   searchTextt;
   SortbyParam = '';
   SortDirection = 'asc';
-
   allproducts: any = [];
-  companies: any = [];
+  products: any = [];
   imgpath = 'https://develop.conome.mk/ProductsImages/';
-
-  value = JSON.parse(localStorage.getItem('value'));
-  options: Options = {
+    value = JSON.parse(localStorage.getItem('value'));
+    options: Options = {
     showTicksValues: true,
     stepsArray: [
       { value: 35, legend: 'km' },
@@ -38,67 +32,51 @@ export class ProductsComponent implements OnInit {
   };
   detectchange(value) {
     this.findMe();
-    if (localStorage.getItem('value') == null) {
+    if(localStorage.getItem('value') == null) {
       this.value = 35;
-      localStorage.setItem('value', JSON.stringify(this.value));
-    } else {
-      localStorage.setItem('value', JSON.stringify(value));
+      localStorage.setItem('value', JSON.stringify(this.value))
+    }
+    else {
+      localStorage.setItem('value', JSON.stringify(value))
     }
   }
   ngOnInit() {
     this.searchService.searchTextt.subscribe((val) => {
       this.searchTextt = val;
     });
-
     this.findMe();
     this.detectchange(this.value);
-      /** spinner starts on init */
-      this.spinner.show();
- 
-      setTimeout(() => {
-        /** spinner ends after 5 seconds */
-        this.spinner.hide();
-      }, 3000);
   }
-
   findMe() {
     //  let decodedData;
-    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        const data = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          radius: this.value * 1000,
-        };
-        this.dataService.getCrmCompaniesByUserAddress(data).subscribe(
+        this.dataService.getAllProducts().subscribe(
           (formated) => {
-            this.companies = formated.map((c) => {
-              return {
-                company: {
-                  name: c.nameSQ,
-                  id: c.id,
-                },
-                address: c.addresses.map((a) => {
-                  return {
-                    location: a.location,
-                  };
-                })[0],
-                products: c.products,
-              };
-            });
+            this.products = formated;
             this.allproducts = [];
-            for (let i = 0; i < this.companies.length; i++) {
-              for (let j = 0; j < this.companies[i].products.length; j++) {
-                this.allproducts.push(this.companies[i].products[j]);
-              }
+            this.products.forEach(formate => {
+              formate.addresses.forEach(adress => {
+                const latitudee = adress.latLng.lat;
+                const longitudee = adress.latLng.lng;
+                const radius = this.value * 1000;
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                var geolibi = geolib.isPointWithinRadius(
+                  { latitude: latitude, longitude: longitude },
+                  { latitude: latitudee, longitude: longitudee },
+                  radius //meters
+                );
+                if(geolibi){
+               console.log(geolibi, "geolibi")
+                this.allproducts.push(formate)
             }
-            console.log(this.companies, 'Company');
+            });
+          });
+            console.log(this.products, 'Company');
           },
           (error) => {}
         );
       });
-    } else {
-    }
   }
   onSortDirection() {
     if (this.SortDirection === 'desc') {
