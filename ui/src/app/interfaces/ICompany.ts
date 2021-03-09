@@ -1,7 +1,5 @@
 export interface ICompany {
-    id: number;
-    nameSQ: string;
-    image: string;
-    
-  }
-  
+  id: number;
+  nameSQ: string;
+  image: string;
+}

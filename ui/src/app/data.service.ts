@@ -11,29 +11,28 @@ import { IProduct } from './interfaces/IProduct';
 export class DataService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  getCrmCompaniesByUserAddress(): Observable<any> {
+  getCrmCompaniesByUserAddress(data): Observable<any> {
     // console.log(data, 'data');
-    return this.http.get<any>('https://develop.conome.mk/api/companyapi/index');
+    return this.http.post('https://api.conome.mk/api/crm/c', data);
   }
 
-  getAllProducts(): Observable<any> {
-    // console.log(data, 'data');
-    return this.http.get<any>(
-      'https://develop.conome.mk/api/companyapi/allproducts'
-    );
-  }
 
   getcompaniesbyID(id): Observable<any> {
     return this.http.get<IProduct>(
-      'https://develop.conome.mk/api/companyapi/compdetails',
-      { params: { id } }
+      'https://develop.conome.mk/api/companyapi/compdetails',{ params: { id } }
     );
   }
 
+  // getAllProducts(): Observable<any> {
+  //   // console.log(data, 'data');
+  //   return this.http.get<any>(
+  //     'https://develop.conome.mk/api/companyapi/allproducts'
+  //   );
+  // }
+
   getProductsbyID(id): Observable<any> {
     return this.http.get<IProduct>(
-      'https://develop.conome.mk/api/companyapi/details',
-      { params: { id } }
+      'https://develop.conome.mk/api/companyapi/details',{ params: { id } }
     );
   }
 

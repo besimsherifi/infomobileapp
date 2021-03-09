@@ -11,7 +11,6 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // tslint:disable-next-line:typedef
   backClicked() {
     this.lokacioni.back();
   }

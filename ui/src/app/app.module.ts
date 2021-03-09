@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxWebstorageModule } from 'ngx-webstorage';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './utils/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,11 +11,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//components
 import { BodyComponent } from './components/body/body.component';
 import { ProductsComponent } from './components/products/products.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { SetingsComponent } from './components/setings/setings.component';
@@ -42,7 +41,7 @@ import { CompanydetailsComponent } from './components/companydetails/companydeta
     ProductdetailsComponent,
     FavoritesComponent,
     SortPipe,
-    CompanydetailsComponent
+    CompanydetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +57,6 @@ import { CompanydetailsComponent } from './components/companydetails/companydeta
     NgxWebstorageModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
