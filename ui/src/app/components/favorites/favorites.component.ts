@@ -17,25 +17,28 @@ export class FavoritesComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('fav') == null) {
-      Swal.fire({
-        text: 'Favorite product not found',
-        icon: 'warning',
-        confirmButtonText: 'Ok!',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.router.navigate(['/']);
-        }
-      });
+      // Swal.fire({
+      //   text: 'Favorite product not found',
+      //   icon: 'warning',
+      //   confirmButtonText: 'Ok!',
+      // }).then((result) => {
+      //   if (result.isConfirmed) {
+      //     this.router.navigate(['/']);
+      //   }
+      // });
+
+      document.getElementById("demo").innerHTML = '<img style="width:50%" src="../../assets/images/favorite.png" >'
     } else if (localStorage.getItem('fav') == '[]') {
-      Swal.fire({
-        text: 'Favorite product not found',
-        icon: 'warning',
-        confirmButtonText: 'Ok!',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.router.navigate(['/']);
-        }
-      });
+      // Swal.fire({
+      //   text: 'Favorite product not found',
+      //   icon: 'warning',
+      //   confirmButtonText: 'Ok!',
+      // }).then((result) => {
+      //   if (result.isConfirmed) {
+      //     this.router.navigate(['/']);
+      //   }
+      // });
+      document.getElementById("demo").innerHTML = '<img style="width:50%" src="../../assets/images/favorite.png" >'
     } else {
       this.data = JSON.parse(localStorage.getItem('fav'));
       this.searchService.searchTextt.subscribe((val) => {

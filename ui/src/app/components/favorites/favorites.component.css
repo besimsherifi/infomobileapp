@@ -1,9 +1,7 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 0fr);
+
+
+
+.images {
+width: 100%;
 }
-.card-image {
-  width: 122px;
-  height: 96px;
-}
+
