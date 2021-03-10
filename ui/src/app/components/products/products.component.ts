@@ -55,9 +55,9 @@ export class ProductsComponent implements OnInit {
             this.products = formated;
             this.allproducts = [];
             this.products.forEach(formate => {
-              formate.addresses.forEach(adress => {
-                const latitudee = adress.latLng.lat;
-                const longitudee = adress.latLng.lng;
+
+                const latitudee =  formate.addresses.latLng.lat;
+                const longitudee =  formate.addresses.latLng.lng;
                 const radius = this.value * 1000;
                 var latitude = position.coords.latitude;
                 var longitude = position.coords.longitude;
@@ -70,7 +70,7 @@ export class ProductsComponent implements OnInit {
                console.log(geolibi, "geolibi")
                 this.allproducts.push(formate)
             }
-            });
+
           });
             console.log(this.products, 'Company');
           },

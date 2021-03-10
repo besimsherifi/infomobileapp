@@ -47,9 +47,9 @@ export class CompaniesComponent implements OnInit {
             this.companies = formated;
             this.compani = [];
             this.companies.forEach(formate => {
-              formate.addresses.forEach(adress => {
-                const latitudee = adress.latLng.lat;
-                const longitudee = adress.latLng.lng;
+
+                const latitudee =  formate.addresses.latLng.lat;
+                const longitudee =  formate.addresses.latLng.lng;
                 const radius = this.value * 1000;
                 var latitude = position.coords.latitude;
                 var longitude = position.coords.longitude;
@@ -61,7 +61,7 @@ export class CompaniesComponent implements OnInit {
                 if(geolibi){
                 this.compani.push(formate)
             }
-            });
+
           });
             console.log(this.companies, 'Companya');
           },
