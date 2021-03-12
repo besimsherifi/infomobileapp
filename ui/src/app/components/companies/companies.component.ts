@@ -20,7 +20,7 @@ export class CompaniesComponent implements OnInit {
   imgpath = 'https://develop.conome.mk/';
   companies: any = [];
   // slider rangekm
-  value: number = 25;
+  value = JSON.parse(localStorage.getItem('value'));
   options: Options = {
     showTicksValues: true,
     stepsArray: [
@@ -32,12 +32,20 @@ export class CompaniesComponent implements OnInit {
   };
   detectchange(value) {
     this.findMe();
+    if(localStorage.getItem('value') == null) {
+      this.value = 35;
+      localStorage.setItem('value', JSON.stringify(this.value))
+    }
+    else {
+      localStorage.setItem('value', JSON.stringify(value))
+    }
   }
   ngOnInit() {
     this.searchService.searchTextt.subscribe((val) => {
       this.searchTextt = val;
     });
     this.findMe();
+    this.detectchange(this.value);
   }
   findMe() {
     let decodedData;
