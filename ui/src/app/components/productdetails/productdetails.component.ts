@@ -13,7 +13,7 @@ import { StorageMap } from '@ngx-pwa/local-storage';
 @Injectable()
 export class ProductdetailsComponent implements OnInit {
   products: any = [];
-  imgpath = 'https://develop.conome.mk/ProductsImages/';
+  imgpath = 'https://localhost:44364/ProductsImages/';
   id;
   isFavorite: boolean = false;
   public data: any;

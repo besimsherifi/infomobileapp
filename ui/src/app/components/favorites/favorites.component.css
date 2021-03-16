@@ -1,7 +1,54 @@
 
+.cardd {
+    border: 1px solid #e6ddca;
+    opacity: 1;
+    width: auto;
+    height: 153px;
+    border: 1px solid #ededed;
+    border-radius: 8px;
+    opacity: 1;
+  }
+  .card-image {
+    height: 96px;
+    border: 1px solid #e6ddca;
+    opacity: 1;
+  }
 
-
-.images {
-width: 100%;
-}
-
+  
+.logoName {
+    margin-top: 13px;
+    margin-left: 15px;
+    width: 139px;
+    height: 37px;
+    color: var(--unnamed-color-553e00);
+    text-align: left;
+    font: normal normal bold 16px/25px Poppins;
+    letter-spacing: 0px;
+    color: #553e00;
+    opacity: 1;
+  }
+  .header {
+    justify-content: space-between;
+  }
+  .material-icons-outlined {
+    margin-right: 35px;
+      margin-top: 13px;
+      width: 20px;
+      height: 21px;
+      font-size: xx-large;
+      color: #e58d00;
+      cursor: pointer;
+  }
+  .material-icons {
+    margin-left: 15px;
+    font-size: 33px;
+    color: #e58d00;
+  }
+  
+  .icona {
+  height:auto;
+    align-self: center;
+    
+  }
+  
+  

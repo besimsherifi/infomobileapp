@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 export class FavoritesComponent implements OnInit {
   searchTextt;
   data: any;
-  imgpath = 'https://develop.conome.mk/ProductsImages/';
+  imgpath = 'https://localhost:44364/ProductsImages/';
 
   constructor(private searchService: SearchService, private router: Router) {}
 

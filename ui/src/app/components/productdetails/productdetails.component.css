@@ -11,10 +11,15 @@
   color: #e58d00;
 }
 .material-icons {
-  margin-left: 20px;
-  margin-top: 10px;
+  width: auto;
+  height: auto;
+  /* transform: matrix(0, 1, -1, 0, 0, 0); */
+  background: var(--unnamed-color-e58d00) 0% 0% no-repeat padding-box;
+  /* background: #E58D00 0% 0% no-repeat padding-box; */
+  opacity: 1;
   font-size: 33px;
   color: #e58d00;
+  align-self: center;
 }
 .header {
   justify-content: space-between;
@@ -28,27 +33,39 @@
 .text {
   display: flex;
   margin: 10px;
+
+    width: auto;
+    height: auto;
+    text-align: left;
+    letter-spacing: 0px;
+    opacity: 1;
+    display: flex;
+    justify-content: space-evenly;
 }
 .text1 {
-  width: 105px;
-  height: 15px;
-  margin: auto;
+  width: auto;
+  height: auto;
+  margin: 0px;
   font: normal normal normal 10px/14px Poppins;
   letter-spacing: 0px;
   color: #b5b5b5;
 }
 .text2 {
-  left: 105px;
+  height: auto;
+  margin: 0px;
+  color: #e58d00;
+  width: auto;
   height: 15px;
-  margin: auto;
+  color: var(--unnamed-color-e58d00);
+  text-align: left;
   font: normal normal bold 10px/14px Poppins;
   letter-spacing: 0px;
-  color: #e58d00;
+  color: #E58D00;
 }
 .info1 {
   margin-top: 18px;
   margin-left: 21px;
-  width: 100%;
+  width: auto;
   height: 20px;
   color: var(--unnamed-color-553e00);
   text-align: left;
@@ -67,7 +84,7 @@
   cursor: pointer;
   font-size: 30px;
   align-self: center;
-  width: 100%;
+  width: auto;
   transition: color 0.2s ease-in-out;
   height: auto;
   margin-left: 10px;

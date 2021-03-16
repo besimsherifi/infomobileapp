@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
   SortDirection = 'asc';
   allproducts: any = [];
   products: any = [];
-  imgpath = 'https://develop.conome.mk/ProductsImages/';
+  imgpath = 'https://localhost:44364/ProductsImages/';
     value = JSON.parse(localStorage.getItem('value'));
     options: Options = {
     showTicksValues: true,
@@ -27,7 +27,7 @@ export class ProductsComponent implements OnInit {
       { value: 35, legend: 'km' },
       { value: 80, legend: 'km' },
       { value: 120, legend: 'km' },
-      { value: 200, legend: 'km' },
+      { value: 2000, legend: 'km' },
     ],
   };
   detectchange(value) {

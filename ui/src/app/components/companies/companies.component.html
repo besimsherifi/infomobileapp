@@ -10,38 +10,95 @@
 
 <!--search-->
 <div class="ifilter" fxLayout="row" fxLayoutWrap>
+  <a style="color: #e58d00;align-self: center;height: 30px;" [routerLink]="['/filter']">
+    <mat-icon style="font-size: x-large; background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 30px;
+    width: auto;"
+      >filter_list</mat-icon
+    ></a
+  >
 
   <!--buttonscroll-->
-  <drag-scroll style="width: 100%; margin-top: 5px">
-    <button mat-raised-button [routerLink]="['/']" routerLinkActive="active">
-      All Categories
+  <drag-scroll style="width: 100%;height:30px">
+    <button mat-stroked-button [routerLink]="['/']" routerLinkActive="active">
+      <span class="sp">All Categories</span>
     </button>
-    <button mat-raised-button routerLinkActive="active">Construction</button>
-    <button mat-raised-button routerLinkActive="active">Retail</button>
-    <button mat-raised-button routerLinkActive="active">Restaurant</button>
-    <button mat-raised-button routerLinkActive="active">Bakery</button>
-    <button mat-raised-button routerLinkActive="active">Clothing</button>
-  </drag-scroll>
-</div>
+    <button mat-stroked-button routerLinkActive="active">
+      <span class="sp">Construction</span>
+    </button>
+    <button mat-stroked-button routerLinkActive="active">
+      <span class="sp">Retail</span>
+    </button>
+    <button mat-stroked-button routerLinkActive="active">
+      <span class="sp">Restaurant</span>
+    </button>
+    <button mat-stroked-button routerLinkActive="active">
+      <span class="sp">Bakery</span>
+    </button>
+    <button mat-stroked-button routerLinkActive="active">
+      <span class="sp">Clothing</span>
+    </button>
+  </drag-scroll>  </div>
 
-<!--Produktet-->
-<div class="row" style="margin: 5px">
+<!--Kompani-->
+<div
+  class="row"
+  style="
+    width: auto;
+    height: auto;
+    opacity: 1;
+    margin: 8px;
+    margin-bottom: 10px;
+  "
+>
   <div
     class="col-6"
-    style="padding: 5px"
+    style="padding: 8px"
     *ngFor="let c of compani | filter: searchTextt"
   >
-    <mat-card [routerLink]="['/companydetail', c.id]">
-      <div fxLayoutAlign="center center" style="margin: 3px">
+    <mat-card [routerLink]="['/companydetail', c.id]" class="cardd">
+      <div
+        fxLayoutAlign="center center"
+        style="
+          width: auto;
+          height: auto;
+          border-radius: 8px 8px 0px 0px;
+          opacity: 1;
+        "
+      >
         <img mat-card-image class="card-image" src="{{ imgpath + c.image }}" />
       </div>
       <mat-card-title
-        style="font-size: large; color: #e58d00; font-weight: bold"
+        style="
+          width: auto;
+          height: auto;
+          color: var(--unnamed-color-e58d00);
+          text-align: left;
+          font: normal normal bold 12px/18px Poppins;
+          letter-spacing: 0.12px;
+          color: #e58d00;
+          opacity: 1;
+        "
         >{{ c.nameSQ }}</mat-card-title
       >
       <mat-card-content>
         <span style="display: flex; justify-content: space-between"
-          ><p style="font-size: 12px">Category</p>
+          ><p
+            style="
+              width: 55px;
+              height: 8px;
+              color: var(--unnamed-color-553e00);
+              text-align: left;
+              font: normal normal 600 9px/9px Poppins;
+              letter-spacing: 0.06px;
+              color: #553e00;
+              opacity: 1;
+            "
+          >
+            Category
+          </p>
         </span>
       </mat-card-content>
     </mat-card>

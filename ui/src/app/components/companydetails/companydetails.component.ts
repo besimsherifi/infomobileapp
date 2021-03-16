@@ -12,8 +12,8 @@ import { StorageMap } from '@ngx-pwa/local-storage';
 })
 export class CompanydetailsComponent implements OnInit {
   company: any = [];
-  imgpath = 'https://develop.conome.mk/';
-  imgpathi = 'https://develop.conome.mk/ProductsImages/';
+  imgpath = 'https://localhost:44364/';
+  imgpathi = 'https://localhost:44364/ProductsImages/';
 
   id;
   public data: any;

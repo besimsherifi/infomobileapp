@@ -1,33 +1,73 @@
 <app-header></app-header>
 <!--Produktet-->
-<div class="row" style="margin: 5px">
+
+<div class="row"  style="
+width: auto;
+height: auto;
+opacity: 1;
+margin: 8px;
+margin-bottom: 10px;
+">
   <div
-    class="col-6"
-    style="padding: 5px"
+  class="col-6"
+  style="padding: 8px"
     *ngFor="let favorites of data | filter: searchTextt"
   >
-    <mat-card [routerLink]="['/productdetail', favorites.id]">
-      <div fxLayoutAlign="center center" style="margin: 3px">
+    <mat-card [routerLink]="['/productdetail', favorites.id]"  class="cardd">
+      <div fxLayoutAlign="center center"  style="    
+      width: auto;
+      height: auto;
+      border-radius: 8px 8px 0px 0px;
+      opacity: 1;">
         <img
           mat-card-image
-          class="card-image"
+          style="height: 96px;
+            border: 1px solid #e6ddca;
+            opacity: 1;
+            width: -webkit-fill-available;"
           src="{{ imgpath + favorites.image }}"
         />
       </div>
       <mat-card-title
-        style="font-size: large; color: #e58d00; font-weight: bold"
+      style="
+      width: auto;
+      height: auto;
+      color: var(--unnamed-color-e58d00);
+      text-align: left;
+      font: normal normal bold 12px/18px Poppins;
+      letter-spacing: 0.12px;
+      color: #E58D00;
+      opacity: 1;
+      margin-bottom:4px;"
         >{{ favorites.nameSQ }}</mat-card-title
       >
       <mat-card-content>
         <span style="display: flex; justify-content: space-between"
-          ><p style="font-size: 12px">Category</p>
+            ><p style="width: auto;
+            height: auto;
+            color: var(--unnamed-color-553e00);
+            text-align: left;
+            font: normal normal 600 9px/9px Poppins;
+            letter-spacing: 0.06px;
+            color: #553E00;
+            opacity: 1;">Category</p>
+              <p
+              style="
+                width: auto;
+    height: auto;
+    color: var(--unnamed-color-035f11);
+    text-align: left;
+    font: normal normal bold 12px/18px Poppins;
+    letter-spacing: 0px;
+    color: #035F11;
+    opacity: 1;
+    margin-bottom: 0px;
+              "
+            >
+              {{ favorites.sellingPriceWithVat }}den
+            </p>
         </span>
       </mat-card-content>
     </mat-card>
   </div>
-  <div class="images">
-  <p style=" margin-left: 10px;
-  margin-top: 200px;
-  text-align: center;" id="demo"></p>
-</div>
 </div>
