@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -48,7 +48,7 @@ import { MatDividerModule } from '@angular/material/divider';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    BrowserModule,
+    BrowserModule,ScrollingModule,
     MatTableModule,
     MatFormFieldModule,
     MatSelectModule,
@@ -62,7 +62,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatTabsModule,
     MatGridListModule,
     MatDialogModule,
-    MatInputModule,
+    MatInputModule,ScrollingModule,
     MatCheckboxModule,
     MatDividerModule,
     MatIconModule,

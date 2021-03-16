@@ -46,3 +46,7 @@ button:focus {
   width: 100%;
   text-align: left;
 }
+
+.body {
+  font-family: Poppins;
+}

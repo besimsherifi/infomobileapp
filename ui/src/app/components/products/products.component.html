@@ -1,5 +1,7 @@
+
 <!--slider km-->
 <div>
+  <div>
   <div class="slider">
     <ngx-slider
       [(value)]="value"
@@ -9,21 +11,39 @@
   </div>
   <!--search-->
   <div class="ifilter" fxLayout="row" fxLayoutWrap>
+    <a style="color: #e58d00;align-self: center;height: 30px;" [routerLink]="['/filter']">
+      <mat-icon style="font-size: x-large; background-repeat: no-repeat;
+      display: inline-block;
+      fill: currentColor;
+      height: 30px;
+      width: auto;"
+        >filter_list</mat-icon
+      ></a
+    >
 
     <!--buttonscroll-->
-    <drag-scroll style="width: 100%; margin-top: 5px">
-      <button mat-raised-button [routerLink]="['/']" routerLinkActive="active">
-        All Categories
+    <drag-scroll style="width: 100%;height:30px">
+      <button mat-stroked-button [routerLink]="['/']" routerLinkActive="active">
+        <span class="sp">All Categories</span>
       </button>
-      <button mat-raised-button routerLinkActive="active">Construction</button>
-      <button mat-raised-button routerLinkActive="active">Retail</button>
-      <button mat-raised-button routerLinkActive="active">Restaurant</button>
-      <button mat-raised-button routerLinkActive="active">Bakery</button>
-      <button mat-raised-button routerLinkActive="active">Clothing</button>
-    </drag-scroll>
-  </div>
+      <button mat-stroked-button routerLinkActive="active">
+        <span class="sp">Construction</span>
+      </button>
+      <button mat-stroked-button routerLinkActive="active">
+        <span class="sp">Retail</span>
+      </button>
+      <button mat-stroked-button routerLinkActive="active">
+        <span class="sp">Restaurant</span>
+      </button>
+      <button mat-stroked-button routerLinkActive="active">
+        <span class="sp">Bakery</span>
+      </button>
+      <button mat-stroked-button routerLinkActive="active">
+        <span class="sp">Clothing</span>
+      </button>
+    </drag-scroll>  </div>
 
-  <div style="display: flex; margin-left: 20px; margin-right: 20px">
+  <div style="display: flex; margin-left: 15px; margin-top:10px; margin-right: 15px">
     <select class="sprod" [(ngModel)]="SortbyParam">
       <option value="" disabled selected hidden>Sort by:</option>
       <option value="nameSQ">ProductName</option>
@@ -40,40 +60,76 @@
       <i *ngIf="SortDirection === 'desc'" class="fas fa-sort-alpha-up"></i>
     </i>
   </div>
-  <div class="row" style="margin: 5px; margin-bottom: 10px">
 
+  <cdk-virtual-scroll-viewport itemSize="100" class="example-viewport" >
+  <div
+    class="row"
+    style="
 
+      opacity: 1;
+      margin: 8px;
+      margin-bottom: 10px;
+    "
+  >
     <div
-      *ngFor="
+    *cdkVirtualFor="
         let c of allproducts
           | filter: searchTextt
           | sort: [SortbyParam, SortDirection]
       "
       class="col-6"
-      style="padding: 5px"
+      style="padding: 8px"
     >
-      <mat-card [routerLink]="['/productdetail', c.id]">
-        <div fxLayoutAlign="center center" style="margin: 3px">
+      <mat-card [routerLink]="['/productdetail', c.id]" class="cardd">
+        <div fxLayoutAlign="center center" style="    
+        width: auto;
+        height: auto;
+        border-radius: 8px 8px 0px 0px;
+        opacity: 1;">
           <img
-            style="margin-top: 1px"
+           
             mat-card-image
-            class="card-image"
+            style="height: 96px;
+            border: 1px solid #e6ddca;
+            opacity: 1;
+            width: -webkit-fill-available;"
             src="{{ imgpath + c.image }}"
           />
         </div>
         <mat-card-title
-          style="font-size: large; color: #e58d00; font-weight: bold"
+          style="
+          width: auto;
+          height: auto;
+          color: var(--unnamed-color-e58d00);
+          text-align: left;
+          font: normal normal bold 12px/18px Poppins;
+          letter-spacing: 0.12px;
+          color: #E58D00;
+          opacity: 1;
+          margin-bottom:4px;"
           >{{ c.nameSQ }}</mat-card-title
         >
         <mat-card-content>
           <span style="display: flex; justify-content: space-between"
-            ><p style="font-size: 12px">Category</p>
+            ><p style="width: auto;
+            height: auto;
+            color: var(--unnamed-color-553e00);
+            text-align: left;
+            font: normal normal 600 9px/9px Poppins;
+            letter-spacing: 0.06px;
+            color: #553E00;
+            opacity: 1;">Category</p>
             <p
               style="
-                float: right;
-                font-size: 12;
-                font-weight: bold;
-                color: #035f11;
+                width: auto;
+    height: auto;
+    color: var(--unnamed-color-035f11);
+    text-align: left;
+    font: normal normal bold 12px/18px Poppins;
+    letter-spacing: 0px;
+    color: #035F11;
+    opacity: 1;
+    margin-bottom: 0px;
               "
             >
               {{ c.sellingPriceWithVat }}den
@@ -83,4 +139,5 @@
       </mat-card>
     </div>
   </div>
+</cdk-virtual-scroll-viewport>
 </div>
