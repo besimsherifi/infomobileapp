@@ -19,7 +19,7 @@ drag-scroll {
 
 
 button {
- 
+
   width: 138px;
   height: 30px;
   margin-left: 10px;
@@ -101,4 +101,21 @@ button:focus {
     opacity: 1;
     padding: 0 15px;
     line-height: 100%;
+  }
+
+  .example-viewport {
+    height: 500px;
+  }
+
+  .example-item {
+    height: 40px;
+  }
+
+
+
+  ::ngdeep .cdk-virtual-scroll-content-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    contain: content;
   }

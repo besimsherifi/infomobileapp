@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
   SortDirection = 'asc';
   allproducts: any = [];
   products: any = [];
-  imgpath = 'https://localhost:44364/ProductsImages/';
+  imgpath = 'https://develop.conome.mk/ProductsImages/';
     value = JSON.parse(localStorage.getItem('value'));
     options: Options = {
     showTicksValues: true,
@@ -27,7 +27,7 @@ export class ProductsComponent implements OnInit {
       { value: 35, legend: 'km' },
       { value: 80, legend: 'km' },
       { value: 120, legend: 'km' },
-      { value: 2000, legend: 'km' },
+      { value: 200, legend: 'km' },
     ],
   };
   detectchange(value) {
@@ -55,9 +55,8 @@ export class ProductsComponent implements OnInit {
             this.products = formated;
             this.allproducts = [];
             this.products.forEach(formate => {
-
-                const latitudee =  formate.addresses.latLng.lat;
-                const longitudee =  formate.addresses.latLng.lng;
+                const latitudee =  formate.lat;
+                const longitudee =  formate.lon;
                 const radius = this.value * 1000;
                 var latitude = position.coords.latitude;
                 var longitude = position.coords.longitude;
