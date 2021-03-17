@@ -17,7 +17,7 @@ export class CompaniesComponent implements OnInit {
   ) {}
   compani: any = [];
   // imgpath = 'https://localhost:44364/';
-  imgpath = 'https://localhost:44364/';
+  imgpath = 'https://develop.conome.mk/';
   companies: any = [];
   // slider rangekm
   value = JSON.parse(localStorage.getItem('value'));
