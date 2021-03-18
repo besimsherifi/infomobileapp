@@ -3,6 +3,7 @@ import { DataService } from 'src/app/data.service';
 import { Options } from '@angular-slider/ngx-slider';
 import { SearchService } from '../../search.service';
 import * as geolib from 'geolib';
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
@@ -13,7 +14,8 @@ export class CompaniesComponent implements OnInit {
   router: any;
   constructor(
     private dataService: DataService,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private spinner: NgxSpinnerService
   ) {}
   compani: any = [];
   // imgpath = 'https://localhost:44364/';
@@ -44,6 +46,7 @@ export class CompaniesComponent implements OnInit {
     this.searchService.searchTextt.subscribe((val) => {
       this.searchTextt = val;
     });
+    this.spinner.show();
     this.findMe();
     this.detectchange(this.value);
   }
@@ -66,7 +69,8 @@ export class CompaniesComponent implements OnInit {
                   radius //meters
                 );
                 if(geolibi){
-                this.compani.push(formate)
+                this.compani.push(formate);
+                this.spinner.hide();
             }
 
           });

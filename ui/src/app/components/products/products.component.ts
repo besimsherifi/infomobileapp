@@ -3,6 +3,10 @@ import { DataService } from '../../data.service';
 import { Options } from '@angular-slider/ngx-slider';
 import { SearchService } from '../../search.service';
 import * as geolib from 'geolib';
+import {  Plugins, GeolocationPosition } from '@capacitor/core';
+import Swal from 'sweetalert2';
+import { NgxSpinnerService } from "ngx-spinner";
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -12,8 +16,11 @@ export class ProductsComponent implements OnInit {
   router: any;
   constructor(
     private dataService: DataService,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private spinner: NgxSpinnerService
   ) {}
+  loc: GeolocationPosition;
+  waitingForCurrentPosition = false;
   searchTextt;
   SortbyParam = '';
   SortDirection = 'asc';
@@ -44,12 +51,30 @@ export class ProductsComponent implements OnInit {
     this.searchService.searchTextt.subscribe((val) => {
       this.searchTextt = val;
     });
+    this.spinner.show();
     this.findMe();
     this.detectchange(this.value);
   }
-  findMe() {
-    //  let decodedData;
-      navigator.geolocation.getCurrentPosition((position) => {
+ async findMe() {
+  try {
+    const { Geolocation } = Plugins;
+       this.loc = await Geolocation.getCurrentPosition();
+       var latitude = this.loc.coords.latitude;
+       var longitude = this.loc.coords.longitude}
+       catch (err) {
+        this.spinner.hide();
+       Swal.fire({
+              text: 'Please enable location',
+              icon: 'warning',
+              confirmButtonText: 'Enable Location',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.reload();
+              }
+            });
+      } finally {
+        this.waitingForCurrentPosition = false;
+      }
         this.dataService.getAllProducts().subscribe(
           (formated) => {
             this.products = formated;
@@ -58,8 +83,7 @@ export class ProductsComponent implements OnInit {
                 const latitudee =  formate.lat;
                 const longitudee =  formate.lon;
                 const radius = this.value * 1000;
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
+
                 var geolibi = geolib.isPointWithinRadius(
                   { latitude: latitude, longitude: longitude },
                   { latitude: latitudee, longitude: longitudee },
@@ -67,7 +91,8 @@ export class ProductsComponent implements OnInit {
                 );
                 if(geolibi){
                console.log(geolibi, "geolibi")
-                this.allproducts.push(formate)
+                this.allproducts.push(formate);
+                this.spinner.hide();
             }
 
           });
@@ -75,7 +100,7 @@ export class ProductsComponent implements OnInit {
           },
           (error) => {}
         );
-      });
+
   }
   onSortDirection() {
     if (this.SortDirection === 'desc') {

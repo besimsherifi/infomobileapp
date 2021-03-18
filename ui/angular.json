@@ -16,7 +16,7 @@
             "allowedCommonJsDependencies": [
               "geolib"
            ],
-            "outputPath": "dist/ui",
+            "outputPath": "www",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
