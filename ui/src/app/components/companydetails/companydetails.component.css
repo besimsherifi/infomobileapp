@@ -31,7 +31,7 @@ drag-scroll {
   height: 30px;
 }
 button {
- 
+
   width: 138px;
   height: 30px;
   margin-left: 10px;
@@ -95,3 +95,7 @@ button:focus {
     color: #553E00;
     opacity: 1;
   }
+
+.uli{
+  padding: 0px;
+}
