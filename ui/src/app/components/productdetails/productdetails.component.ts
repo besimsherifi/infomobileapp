@@ -114,17 +114,18 @@ export class ProductdetailsComponent implements OnInit {
   }
 
   isprodfav() {
+    try {
     const products = JSON.parse(localStorage.getItem('fav')).find(
       (x) => x.id === this.products[0].id
     );
     if (products !== null) {
       if (products.id === this.products[0].id) {
         this.isFavorite = true;
-      } else {
-        this.isFavorite = false;
       }
-    } else {
-      console.log('favorite not found');
     }
+  }
+  catch (err) {
+
+  }
   }
 }

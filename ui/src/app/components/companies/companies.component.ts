@@ -24,7 +24,7 @@ export class CompaniesComponent implements OnInit {
   // slider rangekm
   value = JSON.parse(localStorage.getItem('value'));
   options: Options = {
-    showTicksValues: true,
+
     stepsArray: [
       { value: 35, legend: 'km' },
       { value: 80, legend: 'km' },

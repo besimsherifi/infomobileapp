@@ -4,6 +4,7 @@ import { DataService } from '../../data.service';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { Product } from 'src/app/models/product.model';
 import { StorageMap } from '@ngx-pwa/local-storage';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-companydetails',
@@ -23,7 +24,8 @@ export class CompanydetailsComponent implements OnInit {
   constructor(
     public dataservice: DataService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -73,5 +75,10 @@ export class CompanydetailsComponent implements OnInit {
       },
       (error) => {}
     );
+  }
+
+
+  backClicked() {
+    this.location.back();
   }
 }

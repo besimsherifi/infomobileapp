@@ -1,4 +1,4 @@
-
+<div class="fullpage">
 <!--slider km-->
 <ngx-spinner
   bdColor="rgba(51,51,51,0.8)"
@@ -15,6 +15,11 @@
       [options]="options"
       (userChange)="detectchange(value)"
     ></ngx-slider>
+    <div class="text">
+    <p class="range-line-text">|</p>
+    <p class="range-text">Range in km</p>
+  </div>
+
   </div>
   <!--search-->
   <div class="ifilter" fxLayout="row" fxLayoutWrap>
@@ -148,6 +153,6 @@
   </div>
 
 </cdk-virtual-scroll-viewport>
-
+</div>
 
 

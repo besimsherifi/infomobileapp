@@ -29,13 +29,15 @@ export class ProductsComponent implements OnInit {
   imgpath = 'https://develop.conome.mk/ProductsImages/';
     value = JSON.parse(localStorage.getItem('value'));
     options: Options = {
-    showTicksValues: true,
+
     stepsArray: [
-      { value: 35, legend: 'km' },
-      { value: 80, legend: 'km' },
-      { value: 120, legend: 'km' },
-      { value: 200, legend: 'km' },
+      { value: 35 },
+      { value: 80 },
+      { value: 120 },
+      { value: 200 },
     ],
+
+
   };
   detectchange(value) {
     this.findMe();
@@ -90,13 +92,11 @@ export class ProductsComponent implements OnInit {
                   radius //meters
                 );
                 if(geolibi){
-               console.log(geolibi, "geolibi")
                 this.allproducts.push(formate);
                 this.spinner.hide();
             }
 
           });
-            console.log(this.products, 'Company');
           },
           (error) => {}
         );

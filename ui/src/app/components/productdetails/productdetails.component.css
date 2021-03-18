@@ -40,7 +40,7 @@
     letter-spacing: 0px;
     opacity: 1;
     display: flex;
-    justify-content: space-evenly;
+
 }
 .text1 {
   width: auto;
@@ -61,6 +61,7 @@
   font: normal normal bold 10px/14px Poppins;
   letter-spacing: 0px;
   color: #E58D00;
+  margin-left: 3px;
 }
 .info1 {
   margin-top: 18px;
