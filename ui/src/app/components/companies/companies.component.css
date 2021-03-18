@@ -61,13 +61,6 @@ button:focus {
 
 
 
-.card-image {
-  height: 96px;
-  border: 1px solid #e6ddca;
-  opacity: 1;
-  width: fit-content;
-}
-
 .cardd {
   border: 1px solid #e6ddca;
   opacity: 1;
@@ -93,15 +86,17 @@ button:focus {
     opacity: 1;
   }
 
-  .mat-stroked-button {
-    width: 136px;
-    height: 30px;
-    border: 1px solid #F5F5F5;
-    border-radius: 34px;
-    opacity: 1;
-    padding: 0 15px;
-    line-height: 100%;
-  }
+  
+.mat-stroked-button {
+  width: 136px;
+  height: 30px;
+  border: 1px solid #f5f5f5;
+  border-radius: 34px;
+  opacity: 1;
+  padding: 0 15px;
+  line-height: 100%;
+  margin-right: 5px;
+}
 
   .example-viewport {
     height: 500px;
@@ -111,11 +106,36 @@ button:focus {
     height: 40px;
   }
 
+ 
+ ::ng-deep .cdk-virtual-scroll-content-wrapper {
+  position: relative !important ;
+  top: 0;
+  left: 0;
+  contain: content;
+}
+
+.TITLE {
+  width: auto;
+  height: auto;
+  color: var(--unnamed-color-e58d00);
+  text-align: left;
+  font: normal normal bold 12px/18px Poppins;
+  letter-spacing: 0.12px;
+  color: #E58D00;
+  opacity: 1;
+  margin-bottom:4px;
+
+}
 
 
-  ::ngdeep .cdk-virtual-scroll-content-wrapper {
-    position: relative;
-    top: 0;
-    left: 0;
-    contain: content;
+@media only screen and (max-width: 499px) {
+  .TITLE {
+    font: normal normal bold 9px/18px Poppins;
   }
+ }
+
+ @media only screen and (max-width: 320px) {
+  .TITLE {
+    font: normal normal bold 7px/18px Poppins;
+  }
+ }

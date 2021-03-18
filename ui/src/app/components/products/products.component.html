@@ -1,7 +1,7 @@
 
 <!--slider km-->
-<div>
-  <div>
+
+
   <div class="slider">
     <ngx-slider
       [(value)]="value"
@@ -61,24 +61,24 @@
     </i>
   </div> -->
 
-  <cdk-virtual-scroll-viewport itemSize="100" class="example-viewport" >
+  <cdk-virtual-scroll-viewport [itemSize]="1" class="example-viewport" >
   <div
     class="row"
     style="
-
       opacity: 1;
       margin: 8px;
       margin-bottom: 10px;
     "
   >
     <div
+    class="col-6"
+    style="padding: 8px"
     *cdkVirtualFor="
         let c of allproducts
           | filter: searchTextt
           | sort: [SortbyParam, SortDirection]
       "
-      class="col-6"
-      style="padding: 8px"
+  
     >
       <mat-card [routerLink]="['/productdetail', c.id]" class="cardd">
         <div fxLayoutAlign="center center" style="
@@ -139,5 +139,8 @@
       </mat-card>
     </div>
   </div>
+  
 </cdk-virtual-scroll-viewport>
-</div>
+
+
+

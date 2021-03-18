@@ -110,8 +110,9 @@ div .ngx-slider-inner-tooltip {
 
 
 
-::ngdeep .cdk-virtual-scroll-content-wrapper {
-  position: relative;
+ 
+::ng-deep .cdk-virtual-scroll-content-wrapper {
+  position: relative !important ;
   top: 0;
   left: 0;
   contain: content;
