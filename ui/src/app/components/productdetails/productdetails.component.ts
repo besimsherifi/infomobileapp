@@ -4,6 +4,8 @@ import { DataService } from '../../data.service';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { Product } from 'src/app/models/product.model';
 import { StorageMap } from '@ngx-pwa/local-storage';
+import { SearchService } from 'src/app/search.service';
+// import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-productdetails',
@@ -19,12 +21,14 @@ export class ProductdetailsComponent implements OnInit {
   public data: any;
 
   allproducts: any = [];
+  selectedLanguage = '';
 
   constructor(
     public dataservice: DataService,
     private route: ActivatedRoute,
     private router: Router,
-    private storage: StorageMap
+    private storage: StorageMap,
+    private searchService: SearchService
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -51,6 +55,14 @@ export class ProductdetailsComponent implements OnInit {
       this.allproducts = formated;
       console.log(this.allproducts);
     });
+    this.searchService.selectedLanguage.subscribe((val) => { 
+      this.selectedLanguage = val; 
+    });
+    if(localStorage.getItem('selectedLanguage') == null) {
+      this.selectedLanguage = 'al';
+    }else {
+      this.selectedLanguage = localStorage.getItem('selectedLanguage');
+    }
   }
 
   getProduct(id) {

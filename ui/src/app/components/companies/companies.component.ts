@@ -11,6 +11,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class CompaniesComponent implements OnInit {
   searchTextt;
+  selectedLanguage: String;
   router: any;
   constructor(
     private dataService: DataService,
@@ -46,6 +47,14 @@ export class CompaniesComponent implements OnInit {
     this.searchService.searchTextt.subscribe((val) => {
       this.searchTextt = val;
     });
+    this.searchService.selectedLanguage.subscribe((val) => { 
+      this.selectedLanguage = val; 
+    });
+    if(localStorage.getItem('selectedLanguage') == null) {
+      this.selectedLanguage = 'al';
+    }else {
+      this.selectedLanguage = localStorage.getItem('selectedLanguage');
+    }
     this.spinner.show();
     this.findMe();
     this.detectchange(this.value);
@@ -56,8 +65,10 @@ export class CompaniesComponent implements OnInit {
         this.dataService.getCrmCompaniesByUserAddress().subscribe(
           (formated) => {
             this.companies = formated;
+         console.log(this.companies,'COM')
             this.compani = [];
             this.companies.forEach(formate => {
+            
               const latitudee =  formate.lat;
               const longitudee =  formate.lon;
                 const radius = this.value * 1000;
@@ -74,7 +85,7 @@ export class CompaniesComponent implements OnInit {
             }
 
           });
-            console.log(this.companies, 'Companya');
+            
           },
           (error) => {}
         );

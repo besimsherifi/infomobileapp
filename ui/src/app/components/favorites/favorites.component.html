@@ -29,6 +29,7 @@ margin-bottom: 10px;
         />
       </div>
       <mat-card-title
+      *ngIf="selectedLanguage == 'al'; else MK"
       style="
       width: auto;
       height: auto;
@@ -41,6 +42,21 @@ margin-bottom: 10px;
       margin-bottom:4px;"
         >{{ favorites.nameSQ }}</mat-card-title
       >
+      <ng-template #MK>
+        <mat-card-title
+      style="
+      width: auto;
+      height: auto;
+      color: var(--unnamed-color-e58d00);
+      text-align: left;
+      font: normal normal bold 12px/18px Poppins;
+      letter-spacing: 0.12px;
+      color: #E58D00;
+      opacity: 1;
+      margin-bottom:4px;"
+        >{{ favorites.nameMK }}</mat-card-title
+      >
+      </ng-template>
       <mat-card-content>
         <span style="display: flex; justify-content: space-between"
             ><p style="width: auto;

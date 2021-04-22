@@ -26,6 +26,7 @@ export class ProductsComponent implements OnInit {
   SortDirection = 'asc';
   allproducts: any = [];
   products: any = [];
+  selectedLanguage = ""
   imgpath = 'https://develop.conome.mk/ProductsImages/';
     value = JSON.parse(localStorage.getItem('value'));
     options: Options = {
@@ -53,6 +54,15 @@ export class ProductsComponent implements OnInit {
     this.searchService.searchTextt.subscribe((val) => {
       this.searchTextt = val;
     });
+    this.searchService.selectedLanguage.subscribe((val) => { 
+      this.selectedLanguage = val; 
+    });
+    if(localStorage.getItem('selectedLanguage') == null) {
+      this.selectedLanguage = 'al';
+    }else {
+      this.selectedLanguage = localStorage.getItem('selectedLanguage');
+    }
+    console.log(this.selectedLanguage)
     this.spinner.show();
     this.findMe();
     this.detectchange(this.value);

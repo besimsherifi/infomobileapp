@@ -5,6 +5,7 @@ import { switchMap, map, catchError } from 'rxjs/operators';
 import { Product } from 'src/app/models/product.model';
 import { StorageMap } from '@ngx-pwa/local-storage';
 import { Location } from '@angular/common';
+import { SearchService } from 'src/app/search.service';
 
 @Component({
   selector: 'app-companydetails',
@@ -21,11 +22,13 @@ export class CompanydetailsComponent implements OnInit {
   allproducts: any = [];
   companies: any = [];
   prodcom: any = [];
+  selectedLanguage;
   constructor(
     public dataservice: DataService,
     private route: ActivatedRoute,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private searchService: SearchService
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -47,6 +50,14 @@ export class CompanydetailsComponent implements OnInit {
         }
       );
     this.findMe(this.id);
+    this.searchService.selectedLanguage.subscribe((val) => { 
+      this.selectedLanguage = val; 
+    });
+    if(localStorage.getItem('selectedLanguage') == null) {
+      this.selectedLanguage = 'al';
+    }else {
+      this.selectedLanguage = localStorage.getItem('selectedLanguage');
+    }
   }
 
   getCompany(id) {
@@ -60,18 +71,20 @@ export class CompanydetailsComponent implements OnInit {
           return {
             company: {
               name: c.nameSQ,
+              nameMK: c.nameMK,
               id: c.id,
             },
-            productsi: c.productsi,
+            products: c.productsi,
           };
         });
         this.allproducts = [];
         for (let i = 0; i < this.prodcom.length; i++) {
-          for (let j = 0; j < this.prodcom[i].productsi.length; j++) {
-            this.allproducts.push(this.prodcom[i].productsi[j]);
+          for (let j = 0; j < this.prodcom[i].products.length; j++) {
+            this.allproducts.push(this.prodcom[i].products[j]);
           }
         }
         console.log(this.prodcom, 'Company');
+
       },
       (error) => {}
     );

@@ -29,14 +29,25 @@
       class="rounded-circle img-fluid"
     />
     <mat-card-title
+      *ngIf="selectedLanguage == 'al'; else MK"
       style="
         font-size: large;
         color: #553e00;
         font-weight: bold;
         align-self: center;
       "
-      >{{ c.nameSQ }}</mat-card-title
-    >
+      >{{ c.nameSQ }}</mat-card-title>
+      <ng-template #MK>
+        <mat-card-title
+        
+      style="
+        font-size: large;
+        color: #553e00;
+        font-weight: bold;
+        align-self: center;
+      "
+      >{{ c.nameMK }}</mat-card-title>
+      </ng-template>
 
     <p
       style="
@@ -241,6 +252,7 @@
           />
         </div>
         <mat-card-title
+          *ngIf="selectedLanguage == 'al'; else MK"
           style="
           width: auto;
           height: auto;
@@ -251,8 +263,22 @@
           color: #E58D00;
           opacity: 1;
           margin-bottom:4px;"
-          >{{ c.nameSQ }}</mat-card-title
-        >
+          >{{ c.nameSQ }}</mat-card-title>
+          <ng-template #MK>
+            <mat-card-title
+          *ngIf="selectedLanguage == 'mk'"
+          style="
+          width: auto;
+          height: auto;
+          color: var(--unnamed-color-e58d00);
+          text-align: left;
+          font: normal normal bold 12px/18px Poppins;
+          letter-spacing: 0.12px;
+          color: #E58D00;
+          opacity: 1;
+          margin-bottom:4px;"
+          >{{ c.nameMK }}</mat-card-title>
+          </ng-template>
         <mat-card-content>
           <span style="display: flex; justify-content: space-between"
             ><p style="width: auto;

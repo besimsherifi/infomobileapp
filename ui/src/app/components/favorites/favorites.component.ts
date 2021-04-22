@@ -10,12 +10,21 @@ import Swal from 'sweetalert2';
 })
 export class FavoritesComponent implements OnInit {
   searchTextt;
+  selectedLanguage = "";
   data: any;
   imgpath = 'https://develop.conome.mk/ProductsImages/';
 
   constructor(private searchService: SearchService, private router: Router) {}
 
   ngOnInit() {
+    this.searchService.selectedLanguage.subscribe((val) => { 
+      this.selectedLanguage = val; 
+    });
+    if(localStorage.getItem('selectedLanguage') == null) {
+      this.selectedLanguage = 'al';
+    }else {
+      this.selectedLanguage = localStorage.getItem('selectedLanguage');
+    }
     if (localStorage.getItem('fav') == null) {
       Swal.fire({
         text: 'Favorite product not found',

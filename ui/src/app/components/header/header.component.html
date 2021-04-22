@@ -5,8 +5,16 @@
     [routerLink]="['/']"
     src="../../assets/images/logo.png"
   />
-
+  <div style="display: flex; color: #E55D00;">
+  <!-- <span class="material-icons-outlined">
+    language
+    </span> -->
+    <select [ngModel] = "selectedLanguage"  (change)="changeLanguage($event)" class="language" >
+      <option value="al">AL</option>
+      <option value="mk">MK</option>
+    </select>
   <i class="material-icons-outlined" routerLink="/settings">settings</i>
+</div>
 </div>
 <div style="width: 100%" fxLayout="row" fxLayoutWrap>
   <i class="material-icons icona" routerLink="/menu">east</i>

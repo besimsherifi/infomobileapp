@@ -88,10 +88,14 @@
         opacity: 1;
         width: -webkit-fill-available;"src="{{ imgpath + c.image }}" />
       </div>
-      <mat-card-title
-        class="TITLE"
-        >{{ c.nameSQ }}</mat-card-title
-      >
+      <mat-card-title class="TITLE" *ngIf="selectedLanguage == 'al' || selectedLanguage== ''; else MK">
+        {{ c.nameSQ }}
+        </mat-card-title>
+        <ng-template #MK>
+          <mat-card-title class="TITLE">
+            {{ c.nameMK }}
+            </mat-card-title>
+        </ng-template>
       <mat-card-content>
         <span style="display: flex; justify-content: space-between"
           ><p

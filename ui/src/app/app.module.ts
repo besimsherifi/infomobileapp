@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -29,6 +31,7 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 import { SortPipe } from './components/Pipes/sort.pipe';
 import { CompanydetailsComponent } from './components/companydetails/companydetails.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +52,8 @@ import { CompanydetailsComponent } from './components/companydetails/companydeta
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    CommonModule,
     NgbModule,
     DragScrollModule,
     NgxSliderModule,

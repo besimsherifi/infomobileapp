@@ -5,6 +5,7 @@
   <div style="display: flex; justify-content: space-between">
     <i class="material-icons" (click)="goBack()">keyboard_arrow_left</i>
     <mat-card-title
+      *ngIf="selectedLanguage == 'al'; else MK"
       style="
         margin-bottom: 0px;
         color: #553e00;
@@ -18,8 +19,25 @@
         text-align: center;
         opacity: 1;
       "
-      >{{ c.nameSQ }}</mat-card-title
-    >
+      >{{ c.nameSQ }}</mat-card-title>
+      <ng-template #MK>
+        <mat-card-title
+      *ngIf="selectedLanguage == 'mk'"
+      style="
+        margin-bottom: 0px;
+        color: #553e00;
+        font-weight: bold;
+        align-self: center;
+        width: auto;
+        height: auto;
+        color: var(--unnamed-color-553e00);
+        font: normal normal bold 14px/14px Poppins;
+        letter-spacing: 0px;
+        text-align: center;
+        opacity: 1;
+      "
+      >{{ c.nameMK }}</mat-card-title>
+      </ng-template>
     <span
       style="
         display: flex;
