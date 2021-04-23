@@ -11,31 +11,31 @@ export class DataService {
   constructor(private http: HttpClient, private router: Router) {}
 
   getCrmCompaniesByUserAddress(): Observable<any> {
-    return this.http.get<any>('https://develop.conome.mk/api/companyapi/index');
+    return this.http.get<any>('https://my.conome.mk/api/companyapi/index');
   }
 
 
   getcompaniesbyID(id): Observable<any> {
     return this.http.get<IProduct>(
-      'https://develop.conome.mk/api/companyapi/compdetails',{ params: { id } }
+      'https://my.conome.mk/api/companyapi/compdetails',{ params: { id } }
     );
   }
 
   getAllProducts(): Observable<any> {
     return this.http.get<any>(
-      'https://develop.conome.mk/api/companyapi/allproducts'
+      'https://my.conome.mk/api/companyapi/allproducts'
     );
   }
 
   getProductsbyID(id): Observable<any> {
     return this.http.get<IProduct>(
-      'https://develop.conome.mk/api/companyapi/details',{ params: { id } }
+      'https://my.conome.mk/api/companyapi/details',{ params: { id } }
     );
   }
 
   getProducts(): Observable<any> {
     return this.http.get<IProduct>(
-      'https://develop.conome.mk/api/companyapi/product'
+      'https://my.conome.mk/api/companyapi/product'
     );
   }
 }
