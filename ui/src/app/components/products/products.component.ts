@@ -27,7 +27,7 @@ export class ProductsComponent implements OnInit {
   allproducts: any = [];
   products: any = [];
   selectedLanguage = ""
-  imgpath = 'https://develop.conome.mk/ProductsImages/';
+  imgpath = 'https://my.conome.mk/ProductsImages/';
     value = JSON.parse(localStorage.getItem('value'));
     options: Options = {
 

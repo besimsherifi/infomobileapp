@@ -19,15 +19,15 @@ export class CompaniesComponent implements OnInit {
     private spinner: NgxSpinnerService
   ) {}
   compani: any = [];
-  // imgpath = 'https://localhost:44364/';
-  imgpath = 'https://develop.conome.mk/';
+  // imgpath = 'https://my.conome.mk/';
+  imgpath = 'https://my.conome.mk/';
   companies: any = [];
   // slider rangekm
   value = JSON.parse(localStorage.getItem('value'));
   options: Options = {
 
     stepsArray: [
-      { value: 35, legend: 'km' },
+      { value: 3500, legend: 'km' },
       { value: 80, legend: 'km' },
       { value: 120, legend: 'km' },
       { value: 200, legend: 'km' },
@@ -36,7 +36,7 @@ export class CompaniesComponent implements OnInit {
   detectchange(value) {
     this.findMe();
     if(localStorage.getItem('value') == null) {
-      this.value = 35;
+      this.value = 3500;
       localStorage.setItem('value', JSON.stringify(this.value))
     }
     else {

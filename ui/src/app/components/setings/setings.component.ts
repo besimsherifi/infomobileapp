@@ -17,7 +17,7 @@ export class SetingsComponent implements OnInit {
   }
 
   data: any;
-  imgpath = 'https://develop.conome.mk/ProductsImages/';
+  imgpath = 'https://my.conome.mk/ProductsImages/';
   selectedLanguage = "";
 
   ngOnInit() {
