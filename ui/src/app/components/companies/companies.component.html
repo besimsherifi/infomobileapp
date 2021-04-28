@@ -18,7 +18,7 @@
   ></ngx-slider>
   <div class="text">
     <p class="range-line-text">|</p>
-    <p class="range-text">Range in km</p>
+    <p class="range-text">{{'RANGE_IN_KM' | translate}}</p>
   </div>
 </div>
 
@@ -92,7 +92,7 @@
         {{ c.nameSQ }}
         </mat-card-title>
         <ng-template #MK>
-          <mat-card-title class="TITLE">
+          <mat-card-title class="TITLE" *ngIf="selectedLanguage == 'mk'">
             {{ c.nameMK }}
             </mat-card-title>
         </ng-template>
@@ -110,7 +110,7 @@
             opacity: 1;
             "
           >
-            Category
+            {{'CATEGORY' | translate}}
           </p>
         </span>
       </mat-card-content>

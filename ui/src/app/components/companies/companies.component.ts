@@ -27,7 +27,7 @@ export class CompaniesComponent implements OnInit {
   options: Options = {
 
     stepsArray: [
-      { value: 3500, legend: 'km' },
+      { value: 35, legend: 'km' },
       { value: 80, legend: 'km' },
       { value: 120, legend: 'km' },
       { value: 200, legend: 'km' },
@@ -36,7 +36,7 @@ export class CompaniesComponent implements OnInit {
   detectchange(value) {
     this.findMe();
     if(localStorage.getItem('value') == null) {
-      this.value = 3500;
+      this.value = 35;
       localStorage.setItem('value', JSON.stringify(this.value))
     }
     else {

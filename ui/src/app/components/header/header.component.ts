@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { DataService } from 'src/app/data.service';
 import { SearchService } from 'src/app/search.service';
 
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   selectedLanguage: string;
   
-  constructor(private search: SearchService  ) {
+  constructor(private search: SearchService,private translate: TranslateService ) {
     
   }
 
@@ -28,6 +29,10 @@ export class HeaderComponent implements OnInit {
   changeLanguage(event) {
     this.search.selectedLanguage.next(event.target.value);
     localStorage.setItem('selectedLanguage', event.target.value);
+    this.selectedLanguage = event.target.value;
+    this.translate.use(this.selectedLanguage);
+    this.translate.setDefaultLang(this.selectedLanguage)
+    
   }
 
 }

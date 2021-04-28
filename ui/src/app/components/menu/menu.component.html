@@ -1,16 +1,16 @@
 <div class="menuDiv" fxLayout="row" fxLayoutWrap>
-  <h3 class="menu">Menu</h3>
+  <h3 class="menu">{{'MENU' | translate}}</h3>
 
   <i class="material-icons-outlined" (click)="backClicked()">close</i>
 </div>
 <div fxLayout="row" fxLayoutWrap>
   <button class="viewCompaniesBtn" mat-raised-button routerLink="/">
-    View all Products <i class="material-icons">east</i>
+    {{'VIEW_ALL_PRODUCTS' | translate}} <i class="material-icons">east</i>
   </button>
 </div>
 <div fxLayout="row" fxLayoutWrap>
   <button class="viewCompaniesBtni" mat-raised-button>
-    Products Categories <i class="material-icons">east</i>
+    {{'PRODUCT_CATEGORIES' | translate}} <i class="material-icons">east</i>
   </button>
 </div>
 <div fxLayout="row" fxLayoutWrap>
@@ -19,13 +19,13 @@
     mat-raised-button
     [routerLink]="['/companies']"
   >
-    View all Companies <i class="material-icons">east</i>
+  {{'VIEW_ALL_COMPANIES' | translate}} <i class="material-icons">east</i>
   </button>
 </div>
 
 <div fxLayout="row" fxLayoutWrap>
   <button class="viewCompaniesBtni" mat-raised-button>
-    Company Categories <i class="material-icons">east</i>
+    {{'COMPANY_CATEGORIES' | translate}} <i class="material-icons">east</i>
   </button>
 </div>
 
@@ -35,6 +35,6 @@
     mat-raised-button
     [routerLink]="['/favorite']"
   >
-    Favorites <i class="material-icons">favorite</i>
+  {{'FAVORITES' | translate}} <i class="material-icons">favorite</i>
   </button>
 </div>
