@@ -14,8 +14,8 @@ import { SearchService } from 'src/app/search.service';
 })
 export class CompanydetailsComponent implements OnInit {
   company: any = [];
-  imgpath = 'https://my.conome.mk/';
-  imgpathi = 'https://my.conome.mk/ProductsImages/';
+  imgpath = 'link';
+  imgpathi = 'linkProductsImages/';
 
   id;
   public data: any;

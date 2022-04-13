@@ -12,7 +12,7 @@ export class FavoritesComponent implements OnInit {
   searchTextt;
   selectedLanguage = "";
   data: any;
-  imgpath = 'https://my.conome.mk/ProductsImages/';
+  imgpath = 'linkProductsImages/';
 
   constructor(private searchService: SearchService, private router: Router) {}
 

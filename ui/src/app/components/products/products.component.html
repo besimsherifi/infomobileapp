@@ -86,7 +86,7 @@
     class="col-6"
     style="padding: 8px"
     *cdkVirtualFor="
-        let c of allproducts
+        let c of products
           | filter: searchTextt
           | sort: [SortbyParam, SortDirection]
       "

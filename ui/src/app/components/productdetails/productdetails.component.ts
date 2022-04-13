@@ -15,7 +15,7 @@ import { SearchService } from 'src/app/search.service';
 @Injectable()
 export class ProductdetailsComponent implements OnInit {
   products: any = [];
-  imgpath = 'https://my.conome.mk/ProductsImages/';
+  imgpath = 'linkProductsImages/';
   id;
   isFavorite: boolean = false;
   public data: any;

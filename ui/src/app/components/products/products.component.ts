@@ -27,7 +27,7 @@ export class ProductsComponent implements OnInit {
   allproducts: any = [];
   products: any = [];
   selectedLanguage = ""
-  imgpath = 'https://my.conome.mk/ProductsImages/';
+  imgpath = 'linkProductsImages/';
     value = JSON.parse(localStorage.getItem('value'));
     options: Options = {
 
@@ -91,6 +91,8 @@ export class ProductsComponent implements OnInit {
           (formated) => {
             this.products = formated;
             this.allproducts = [];
+            console.log(this.products,'produktet')
+            console.log(this.allproducts,'allproducts')
             this.products.forEach(formate => {
                 const latitudee =  formate.lat;
                 const longitudee =  formate.lon;

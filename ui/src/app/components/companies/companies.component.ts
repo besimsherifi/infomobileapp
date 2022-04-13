@@ -19,8 +19,8 @@ export class CompaniesComponent implements OnInit {
     private spinner: NgxSpinnerService
   ) {}
   compani: any = [];
-  // imgpath = 'https://my.conome.mk/';
-  imgpath = 'https://my.conome.mk/';
+  // imgpath = 'link';
+  imgpath = 'link';
   companies: any = [];
   // slider rangekm
   value = JSON.parse(localStorage.getItem('value'));
@@ -66,6 +66,7 @@ export class CompaniesComponent implements OnInit {
           (formated) => {
             this.companies = formated;
          console.log(this.companies,'COM')
+        //  console.log(formated)
             this.compani = [];
             this.companies.forEach(formate => {
             

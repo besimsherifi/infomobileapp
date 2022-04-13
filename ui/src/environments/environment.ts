@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  API_URL : 'https://my.conome.mk/api',
-  IMG_PATH: 'https://my.conome.mk/ProductsImages/',
-  IMG_PATH_CATEGORY: 'https://my.conome.mk/CategoryImages/',
+  API_URL : 'linkapi',
+  IMG_PATH: 'linkProductsImages/',
+  IMG_PATH_CATEGORY: 'linkCategoryImages/',
   IMG_PATH_LOGO: 'https://localhost:44364',
   production: false,
 };
